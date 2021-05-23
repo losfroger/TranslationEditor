@@ -36,6 +36,9 @@ func _input(event: InputEvent) -> void:
 	if event.get_action_strength("add_entry_below"):
 		_on_AddEntryBelow_pressed()
 	
+	if event.get_action_strength("delete_entry"):
+		delete_entry()
+	
 	# Saving | loading
 	if event.get_action_strength("save_file"):
 		save_file()
@@ -60,6 +63,17 @@ func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null) -> 
 	if created:
 		yield(get_tree().create_timer(0.1), "timeout")
 		entryInstance.loaded()
+
+
+func delete_entry() -> void:
+	var focusOwner = get_focus_owner()
+	if focusOwner != null:
+		if focusOwner.owner.is_in_group("sub_entry"):
+			var index = focusOwner.owner.get_index() + 1
+			var finalIndex = index if index < subList.get_child_count() else subList.get_child_count() - 2
+			
+			focusOwner.owner.queue_free()
+			subList.get_child(finalIndex).subText.grab_focus()
 
 func _on_AddEntry_pressed() -> void:
 	var subInstance = subEntry.instance()
