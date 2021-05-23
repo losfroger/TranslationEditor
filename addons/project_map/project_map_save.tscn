@@ -1,0 +1,153 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://addons/project_map/pm_group_node.gd" type="Script" id=1]
+[ext_resource path="res://addons/project_map/pm_file_node.gd" type="Script" id=2]
+[ext_resource path="res://addons/project_map/project_map.gd" type="Script" id=3]
+[ext_resource path="res://addons/project_map/pm_file_node.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/project_map/pm_group_node.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/project_map/node.stylebox" type="StyleBox" id=6]
+[ext_resource path="res://addons/project_map/node_selected.stylebox" type="StyleBox" id=7]
+[ext_resource path="res://addons/project_map/group_selected.stylebox" type="StyleBox" id=8]
+[ext_resource path="res://addons/project_map/group.stylebox" type="StyleBox" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.2, 0.231373, 0.309804, 1 )
+
+[node name="ProjectMap" type="GraphEdit"]
+margin_right = 1334.0
+margin_bottom = 889.0
+rect_min_size = Vector2( 500, 500 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 1 )
+scroll_offset = Vector2( -281.278, -332 )
+snap_distance = 32
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GroupNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 313.278
+margin_top = 332.0
+margin_right = 569.278
+margin_bottom = 620.0
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 8 )
+custom_styles/comment = ExtResource( 9 )
+offset = Vector2( 32, 0 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Types of entries"
+
+[node name="FileNode" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 313.278
+margin_top = 204.0
+margin_right = 482.279
+margin_bottom = 266.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 32, -128 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/MainInterface.tscn"
+icon_class = "Control"
+script_path = "res://Scenes/MainInterface.gd"
+script_name = "MainInterface.gd"
+
+[node name="FileNode2" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 345.278
+margin_top = 396.0
+margin_right = 480.279
+margin_bottom = 458.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 64, 64 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/SubEntry.tscn"
+icon_class = "HBoxContainer"
+script_path = "res://Scenes/SubEntry.gd"
+script_name = "SubEntry.gd"
+
+[node name="FileNode3" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 345.278
+margin_top = 460.0
+margin_right = 519.279
+margin_bottom = 522.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 64, 128 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/CommentEntry.tscn"
+icon_class = "HBoxContainer"
+script_path = "res://Scenes/CommentEntry.gd"
+script_name = "CommentEntry.gd"
+
+[node name="FileNode4" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 697.278
+margin_top = 332.0
+margin_right = 843.278
+margin_bottom = 364.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 416, 0 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Source/actor_global.gd"
+resource_type = 2
+icon_class = "Script"
+
+[connection signal="delete_nodes_request" from="." to="." method="_on_GraphEdit_delete_nodes_request"]

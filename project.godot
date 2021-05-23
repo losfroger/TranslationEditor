@@ -32,6 +32,10 @@ ActorGlobal="*res://Source/actor_global.gd"
 
 window/size/always_on_top=true
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/Todo_Manager/plugin.cfg", "res://addons/project_map/plugin.cfg", "res://addons/ui_design_tool/plugin.cfg" )
+
 [input]
 
 add_entry={
