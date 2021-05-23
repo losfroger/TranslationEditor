@@ -22,3 +22,6 @@ mono_crash.*.json
 
 # Export folder
 Export/*
+
+# Ignore txt files
+*.txt
