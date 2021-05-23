@@ -4,7 +4,8 @@ extends Control
 onready var fileMenu = $Panel/MarginContainer/VBoxContainer/Menus/FileMenu
 onready var actorMenu = $Panel/MarginContainer/VBoxContainer/Menus/ActorMenu
 # Subs
-onready var subList = $Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer/Subs
+onready var subList = $Panel/MarginContainer/VBoxContainer/SubtitleContainer/Subs
+onready var subContainer = $Panel/MarginContainer/VBoxContainer/SubtitleContainer
 onready var subEntry = preload("res://Scenes/SubEntry.tscn")
 onready var commentEntry = preload("res://Scenes/CommentEntry.tscn")
 # Popups
@@ -37,6 +38,8 @@ func _input(event: InputEvent) -> void:
 func _on_AddEntry_pressed() -> void:
 	var subInstance = subEntry.instance()
 	subList.add_child(subInstance)
+	yield(get_tree().create_timer(0.1), "timeout")
+	subContainer.scroll_vertical += 100
 
 
 func _on_AddComment_pressed() -> void:
@@ -92,7 +95,6 @@ func _on_LoadSubFileDialog_file_selected(path: String) -> void:
 	# Process actors
 	ActorGlobal.load_actors(file.get_line())
 	
-	print(ActorGlobal.actorList)
 	while(not file.eof_reached()):
 		var subEntryText = file.get_line()
 		
@@ -100,18 +102,15 @@ func _on_LoadSubFileDialog_file_selected(path: String) -> void:
 			# Check if it's a comment or a translation
 			if "#" in subEntryText:
 				var entryLoad = subEntryText.split("#")
-				print(entryLoad)
 				var comInstance = commentEntry.instance()
 				subList.add_child(comInstance)
 				comInstance.load_entry(entryLoad[1])
 			else:
 				var entryLoad  = subEntryText.split(":")
-				print(entryLoad)
 				
 				var subInstance = subEntry.instance()
 				subList.add_child(subInstance)
 				subInstance.load_entry(entryLoad[0], entryLoad[1])
 	
-	print("=====")
 	
 	file.close()

@@ -14,10 +14,7 @@ func _ready() -> void:
 
 
 func load_entry(actor: String, text: String):
-	print("-" + text.right(1) + "-")
 	subText.text = text.right(1)
-	print(ActorGlobal.actorList)
-	print(ActorGlobal.actorList.find(actor))
 	actorButton.select(ActorGlobal.actorList.find(actor))
 
 func get_text():

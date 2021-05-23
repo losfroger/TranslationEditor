@@ -91,48 +91,41 @@ margin_right = 188.0
 margin_bottom = 20.0
 text = "Add comment"
 
-[node name="SubtitleContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="LabelContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
 margin_top = 71.0
 margin_right = 1014.0
-margin_bottom = 590.0
-size_flags_vertical = 3
-follow_focus = true
+margin_bottom = 85.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer"]
-margin_right = 1014.0
-margin_bottom = 519.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 10
-
-[node name="LabelContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer"]
-margin_right = 1014.0
-margin_bottom = 14.0
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer/LabelContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/LabelContainer"]
 margin_right = 110.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 110, 0 )
 text = "Actor"
 
-[node name="Label2" type="Label" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer/LabelContainer"]
+[node name="Label2" type="Label" parent="Panel/MarginContainer/VBoxContainer/LabelContainer"]
 margin_left = 114.0
 margin_right = 184.0
 margin_bottom = 14.0
 text = "Translation"
 
-[node name="Subs" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer"]
-margin_top = 24.0
+[node name="SubtitleContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 94.0
 margin_right = 1014.0
-margin_bottom = 519.0
+margin_bottom = 590.0
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="Subs" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer"]
+margin_right = 1014.0
+margin_bottom = 496.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SubEntry" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer/Subs" instance=ExtResource( 1 )]
+[node name="SubEntry" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/Subs" instance=ExtResource( 1 )]
 margin_right = 1014.0
 margin_bottom = 24.0
 
-[node name="CommentEntry" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer/Subs" instance=ExtResource( 3 )]
+[node name="CommentEntry" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/Subs" instance=ExtResource( 3 )]
 margin_top = 28.0
 margin_right = 1014.0
 margin_bottom = 52.0

@@ -8,7 +8,6 @@ func _ready() -> void:
 
 
 func load_entry(text: String):
-	print("-" + text.right(1) + "-")
 	subText.text = text.right(1)
 
 func get_text():
