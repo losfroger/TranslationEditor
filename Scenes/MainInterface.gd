@@ -40,16 +40,21 @@ func _input(event: InputEvent) -> void:
 # == ADDING SUBS AND COMMENTS ==
 
 func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null) -> void:
+	var created = false
 	match option:
 		ADD_OPTION.NORMAL:
 			subList.add_child(entryInstance)
+			created = true
 		
 		ADD_OPTION.BELOW_NODE:
 			if focusOwner != null:
 				if focusOwner.owner.is_in_group("sub_entry"):
 					subList.add_child_below_node(focusOwner.owner, entryInstance)
-	yield(get_tree().create_timer(0.1), "timeout")
-	entryInstance.loaded()
+					created = true
+	
+	if created:
+		yield(get_tree().create_timer(0.1), "timeout")
+		entryInstance.loaded()
 
 func _on_AddEntry_pressed() -> void:
 	var subInstance = subEntry.instance()
