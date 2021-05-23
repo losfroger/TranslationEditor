@@ -30,6 +30,8 @@ ActorGlobal="*res://Source/actor_global.gd"
 
 [display]
 
+window/size/width=680
+window/size/height=760
 window/size/always_on_top=true
 
 [editor_plugins]
