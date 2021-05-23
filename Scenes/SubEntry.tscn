@@ -16,15 +16,19 @@ __meta__ = {
 }
 
 [node name="ActorButton" type="OptionButton" parent="."]
-margin_right = 110.0
+margin_right = 75.0
 margin_bottom = 31.0
-rect_min_size = Vector2( 110, 0 )
+rect_min_size = Vector2( 75, 0 )
+focus_mode = 1
 size_flags_horizontal = 0
+size_flags_vertical = 3
+enabled_focus_mode = 1
 text = "Actor"
 align = 2
+selected = 0
 
 [node name="SubText" type="LineEdit" parent="."]
-margin_left = 114.0
+margin_left = 79.0
 margin_right = 976.0
 margin_bottom = 31.0
 size_flags_horizontal = 3

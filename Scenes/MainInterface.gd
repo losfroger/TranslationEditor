@@ -28,7 +28,6 @@ func _ready() -> void:
 	fileMenu.get_popup().connect("id_pressed", self, "_on_FileMenu_id_pressed")
 
 # SHORTCUTS
-# TODO: Make shortcuts to change the actor
 # TODO: Duplicate line
 # TODO: Use the last actor when entering a new one entry
 func _input(event: InputEvent) -> void:
@@ -38,8 +37,18 @@ func _input(event: InputEvent) -> void:
 	if event.get_action_strength("add_entry_below"):
 		_on_AddEntryBelow_pressed()
 	
+	# Delete entry
 	if event.get_action_strength("delete_entry"):
 		delete_entry()
+	
+	# Change actors
+	if event.get_action_strength("next_actor"):
+		var focusOwner = get_focus_owner().owner
+		focusOwner.change_actor(focusOwner.CHANGE_ACTOR.NEXT)
+	if event.get_action_strength("prev_actor"):
+		var focusOwner = get_focus_owner().owner
+		focusOwner.change_actor(focusOwner.CHANGE_ACTOR.PREVIOUS)
+	
 	
 	# Saving | loading
 	if event.get_action_strength("save_file"):

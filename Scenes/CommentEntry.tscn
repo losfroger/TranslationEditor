@@ -17,17 +17,18 @@ __meta__ = {
 
 [node name="Comment" type="Label" parent="."]
 margin_top = 8.0
-margin_right = 110.0
+margin_right = 75.0
 margin_bottom = 22.0
-rect_min_size = Vector2( 110, 0 )
-text = "Comment:     "
+rect_min_size = Vector2( 75, 0 )
+text = "Comment: "
 align = 2
 
 [node name="SubText" type="LineEdit" parent="."]
-margin_left = 114.0
+margin_left = 79.0
 margin_right = 976.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="DeleteBtn" type="Button" parent="."]
 margin_left = 980.0
