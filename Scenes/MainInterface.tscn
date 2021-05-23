@@ -1,8 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/SubEntry.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/MainInterface.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/CommentEntry.tscn" type="PackedScene" id=3]
 
 [sub_resource type="InputEventKey" id=1]
 control = true
@@ -12,6 +10,14 @@ scancode = 16777221
 
 [sub_resource type="ShortCut" id=2]
 shortcut = SubResource( 1 )
+
+[sub_resource type="InputEventKey" id=5]
+alt = true
+pressed = true
+scancode = 16777221
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 5 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -91,6 +97,14 @@ margin_right = 188.0
 margin_bottom = 20.0
 text = "Add comment"
 
+[node name="AddEntryBelow" type="Button" parent="Panel/MarginContainer/VBoxContainer/SubButtons"]
+margin_left = 199.0
+margin_right = 315.0
+margin_bottom = 20.0
+focus_mode = 0
+shortcut = SubResource( 4 )
+text = "Add entry below"
+
 [node name="LabelContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
 margin_top = 71.0
 margin_right = 1014.0
@@ -113,22 +127,14 @@ margin_top = 94.0
 margin_right = 1014.0
 margin_bottom = 590.0
 size_flags_vertical = 3
+follow_focus = true
 scroll_horizontal_enabled = false
 
-[node name="Subs" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer"]
+[node name="SubList" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer"]
 margin_right = 1014.0
 margin_bottom = 496.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="SubEntry" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/Subs" instance=ExtResource( 1 )]
-margin_right = 1014.0
-margin_bottom = 24.0
-
-[node name="CommentEntry" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/Subs" instance=ExtResource( 3 )]
-margin_top = 28.0
-margin_right = 1014.0
-margin_bottom = 52.0
 
 [node name="SaveSubFileDialog" type="FileDialog" parent="."]
 anchor_left = 0.5
@@ -194,5 +200,6 @@ __meta__ = {
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SubButtons/AddEntry" to="." method="_on_AddEntry_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SubButtons/AddComment" to="." method="_on_AddComment_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SubButtons/AddEntryBelow" to="." method="_on_AddEntryBelow_pressed"]
 [connection signal="file_selected" from="SaveSubFileDialog" to="." method="_on_SaveSubFileDialog_file_selected"]
 [connection signal="file_selected" from="LoadSubFileDialog" to="." method="_on_LoadSubFileDialog_file_selected"]

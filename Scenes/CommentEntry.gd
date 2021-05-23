@@ -3,7 +3,7 @@ extends HBoxContainer
 onready var subText = $SubText
 var index = 0
 
-func _ready() -> void:
+func loaded() -> void:
 	subText.grab_focus()
 
 

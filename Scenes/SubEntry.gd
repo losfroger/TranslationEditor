@@ -7,10 +7,12 @@ var index = 0
 # TODO: Make buttons to change the order of the subs
 
 func _ready() -> void:
-	subText.grab_focus()
-	
 	for actor in ActorGlobal.actorList:
 		actorButton.add_item(actor)
+
+
+func loaded() -> void:
+	subText.grab_focus()
 
 
 func load_entry(actor: String, text: String):
