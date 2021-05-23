@@ -11,21 +11,21 @@ scancode = 16777221
 [sub_resource type="ShortCut" id=2]
 shortcut = SubResource( 1 )
 
-[sub_resource type="InputEventKey" id=6]
+[sub_resource type="InputEventKey" id=3]
 control = true
 command = true
 pressed = true
 scancode = 92
 
-[sub_resource type="ShortCut" id=7]
-shortcut = SubResource( 6 )
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
 
 [sub_resource type="InputEventKey" id=5]
 alt = true
 pressed = true
 scancode = 16777221
 
-[sub_resource type="ShortCut" id=4]
+[sub_resource type="ShortCut" id=6]
 shortcut = SubResource( 5 )
 
 [node name="Main" type="Control"]
@@ -108,7 +108,7 @@ margin_right = 188.0
 margin_bottom = 20.0
 hint_tooltip = "Add comment to the bottom"
 focus_mode = 0
-shortcut = SubResource( 7 )
+shortcut = SubResource( 4 )
 text = "Add comment"
 
 [node name="VSeparator" type="VSeparator" parent="Panel/MarginContainer/VBoxContainer/SubButtons"]
@@ -122,7 +122,7 @@ margin_right = 330.0
 margin_bottom = 20.0
 hint_tooltip = "Add translation entry below the currently selected one"
 focus_mode = 0
-shortcut = SubResource( 4 )
+shortcut = SubResource( 6 )
 text = "Add entry below"
 
 [node name="AddCommentBelow" type="Button" parent="Panel/MarginContainer/VBoxContainer/SubButtons"]
@@ -131,7 +131,7 @@ margin_right = 486.0
 margin_bottom = 20.0
 hint_tooltip = "Add comment to the bottom"
 focus_mode = 0
-shortcut = SubResource( 7 )
+shortcut = SubResource( 4 )
 text = "Add comment below"
 
 [node name="LabelContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]

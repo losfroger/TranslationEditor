@@ -29,6 +29,8 @@ func _ready() -> void:
 
 # SHORTCUTS
 # TODO: Make shortcuts to change the actor
+# TODO: Duplicate line
+# TODO: Use the last actor when entering a new one entry
 func _input(event: InputEvent) -> void:
 	# Adding entries
 	if event.get_action_strength("add_entry"):
@@ -99,6 +101,7 @@ func _on_AddCommentBelow_pressed() -> void:
 
 # == SAVING AND LOADING ==
 # TODO: Save the last place you saved the file and reload it on run
+# TODO: Add confirmation to exit when you have something
 func save_file() -> void:
 	if subList.get_child_count() > 0:
 		saveSubDialog.popup()
