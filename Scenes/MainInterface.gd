@@ -30,8 +30,13 @@ func _ready() -> void:
 # SHORTCUTS
 # TODO: Make shortcuts to change the actor
 func _input(event: InputEvent) -> void:
+	# Adding entries
 	if event.get_action_strength("add_entry"):
 		_on_AddEntry_pressed()
+	if event.get_action_strength("add_entry_below"):
+		_on_AddEntryBelow_pressed()
+	
+	# Saving | loading
 	if event.get_action_strength("save_file"):
 		save_file()
 	if event.get_action_strength("load_file"):
@@ -69,7 +74,13 @@ func _on_AddEntryBelow_pressed() -> void:
 
 func _on_AddComment_pressed() -> void:
 	var commentInstance = commentEntry.instance()
-	subList.add_child(commentInstance)
+	add_entry(commentInstance)
+
+
+func _on_AddCommentBelow_pressed() -> void:
+	var focusOwner = get_focus_owner()
+	var commentInstance = commentEntry.instance()
+	add_entry(commentInstance, ADD_OPTION.BELOW_NODE, focusOwner)
 
 
 # == SAVING AND LOADING ==
@@ -138,3 +149,4 @@ func _on_LoadSubFileDialog_file_selected(path: String) -> void:
 				subInstance.load_entry(entryLoad[0], entryLoad[1])
 	
 	file.close()
+
