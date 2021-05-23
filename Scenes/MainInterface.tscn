@@ -1,0 +1,205 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/SubEntry.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/MainInterface.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/CommentEntry.tscn" type="PackedScene" id=3]
+
+[sub_resource type="InputEventKey" id=1]
+control = true
+command = true
+pressed = true
+scancode = 16777221
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1019.0
+margin_bottom = 595.0
+custom_constants/separation = 9
+
+[node name="Menus" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_right = 1014.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileMenu" type="MenuButton" parent="Panel/MarginContainer/VBoxContainer/Menus"]
+margin_right = 35.0
+margin_bottom = 20.0
+text = "File"
+items = [ "Save", null, 0, false, false, 0, 0, null, "", false, "Load", null, 0, false, false, 1, 0, null, "", false ]
+
+[node name="ActorMenu" type="MenuButton" parent="Panel/MarginContainer/VBoxContainer/Menus"]
+margin_left = 39.0
+margin_right = 92.0
+margin_bottom = 20.0
+text = "Actors"
+items = [ "Add actor", null, 0, false, false, 0, 0, null, "", false, "Edit actor", null, 0, false, false, 1, 0, null, "", false ]
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 29.0
+margin_right = 1014.0
+margin_bottom = 33.0
+mouse_filter = 2
+size_flags_vertical = 0
+
+[node name="SubButtons" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 1014.0
+margin_bottom = 62.0
+custom_constants/separation = 11
+
+[node name="AddEntry" type="Button" parent="Panel/MarginContainer/VBoxContainer/SubButtons"]
+margin_right = 74.0
+margin_bottom = 20.0
+shortcut = SubResource( 2 )
+text = "Add entry"
+
+[node name="AddComment" type="Button" parent="Panel/MarginContainer/VBoxContainer/SubButtons"]
+margin_left = 85.0
+margin_right = 188.0
+margin_bottom = 20.0
+text = "Add comment"
+
+[node name="SubtitleContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 1014.0
+margin_bottom = 590.0
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer"]
+margin_right = 1014.0
+margin_bottom = 519.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="LabelContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer"]
+margin_right = 1014.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer/LabelContainer"]
+margin_right = 110.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 110, 0 )
+text = "Actor"
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer/LabelContainer"]
+margin_left = 114.0
+margin_right = 184.0
+margin_bottom = 14.0
+text = "Translation"
+
+[node name="Subs" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 1014.0
+margin_bottom = 519.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SubEntry" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer/Subs" instance=ExtResource( 1 )]
+margin_right = 1014.0
+margin_bottom = 24.0
+
+[node name="CommentEntry" parent="Panel/MarginContainer/VBoxContainer/SubtitleContainer/VBoxContainer/Subs" instance=ExtResource( 3 )]
+margin_top = 28.0
+margin_right = 1014.0
+margin_bottom = 52.0
+
+[node name="SaveSubFileDialog" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -361.0
+margin_top = -230.0
+margin_right = 362.0
+margin_bottom = 230.0
+popup_exclusive = true
+resizable = true
+dialog_text = "Save subtitle file (if you just saved the file, use F5 to refresh the window)"
+access = 2
+filters = PoolStringArray( "*.txt" )
+show_hidden_files = true
+current_dir = "/Losfroger/Documentos/Godot/SubtitleEditor"
+current_path = "/Losfroger/Documentos/Godot/SubtitleEditor/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadSubFileDialog" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -361.0
+margin_top = -230.0
+margin_right = 362.0
+margin_bottom = 230.0
+popup_exclusive = true
+window_title = "Open a File"
+resizable = true
+dialog_text = "Load subtitle file"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.txt" )
+current_dir = "/Losfroger/Documentos/Godot/SubtitleEditor"
+current_path = "/Losfroger/Documentos/Godot/SubtitleEditor/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorDialog" type="AcceptDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.0
+margin_top = -49.0
+margin_right = 96.0
+margin_bottom = 50.0
+size_flags_horizontal = 11
+size_flags_vertical = 13
+popup_exclusive = true
+window_title = "Error"
+dialog_text = "Test"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SubButtons/AddEntry" to="." method="_on_AddEntry_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SubButtons/AddComment" to="." method="_on_AddComment_pressed"]
+[connection signal="file_selected" from="SaveSubFileDialog" to="." method="_on_SaveSubFileDialog_file_selected"]
+[connection signal="file_selected" from="LoadSubFileDialog" to="." method="_on_LoadSubFileDialog_file_selected"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/SubEntry.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Icons/cross.png" type="Texture" id=2]
+
+[node name="SubEntry" type="HBoxContainer" groups=[
+"sub_entry",
+]]
+margin_right = 1004.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_vertical = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActorButton" type="OptionButton" parent="."]
+margin_right = 110.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 110, 0 )
+size_flags_horizontal = 0
+text = "Actor"
+
+[node name="SubText" type="LineEdit" parent="."]
+margin_left = 114.0
+margin_right = 976.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="DeleteBtn" type="Button" parent="."]
+margin_left = 980.0
+margin_right = 1004.0
+margin_bottom = 31.0
+icon = ExtResource( 2 )
+
+[connection signal="pressed" from="DeleteBtn" to="." method="_on_DeleteBtn_pressed"]
