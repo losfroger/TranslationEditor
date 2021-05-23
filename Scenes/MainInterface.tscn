@@ -88,6 +88,8 @@ custom_constants/separation = 11
 [node name="AddEntry" type="Button" parent="Panel/MarginContainer/VBoxContainer/SubButtons"]
 margin_right = 74.0
 margin_bottom = 20.0
+hint_tooltip = "Add translation entry to the bottom"
+focus_mode = 0
 shortcut = SubResource( 2 )
 text = "Add entry"
 
@@ -95,12 +97,15 @@ text = "Add entry"
 margin_left = 85.0
 margin_right = 188.0
 margin_bottom = 20.0
+hint_tooltip = "Add comment to the bottom"
+focus_mode = 0
 text = "Add comment"
 
 [node name="AddEntryBelow" type="Button" parent="Panel/MarginContainer/VBoxContainer/SubButtons"]
 margin_left = 199.0
 margin_right = 315.0
 margin_bottom = 20.0
+hint_tooltip = "Add translation entry below the currently selected one"
 focus_mode = 0
 shortcut = SubResource( 4 )
 text = "Add entry below"
