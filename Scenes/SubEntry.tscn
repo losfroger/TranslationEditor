@@ -21,6 +21,7 @@ margin_bottom = 31.0
 rect_min_size = Vector2( 110, 0 )
 size_flags_horizontal = 0
 text = "Actor"
+align = 2
 
 [node name="SubText" type="LineEdit" parent="."]
 margin_left = 114.0
@@ -33,5 +34,6 @@ margin_left = 980.0
 margin_right = 1004.0
 margin_bottom = 31.0
 icon = ExtResource( 2 )
+flat = true
 
 [connection signal="pressed" from="DeleteBtn" to="." method="_on_DeleteBtn_pressed"]

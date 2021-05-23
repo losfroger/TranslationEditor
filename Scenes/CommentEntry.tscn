@@ -33,5 +33,6 @@ margin_left = 980.0
 margin_right = 1004.0
 margin_bottom = 31.0
 icon = ExtResource( 1 )
+flat = true
 
 [connection signal="pressed" from="DeleteBtn" to="." method="_on_DeleteBtn_pressed"]
