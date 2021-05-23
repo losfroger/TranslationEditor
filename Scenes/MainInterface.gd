@@ -4,7 +4,7 @@ extends Control
 onready var fileMenu = $Panel/MarginContainer/VBoxContainer/Menus/FileMenu
 onready var actorMenu = $Panel/MarginContainer/VBoxContainer/Menus/ActorMenu
 # Subs
-onready var subList = $Panel/MarginContainer/VBoxContainer/SubtitleContainer/SubList
+onready var subList = $Panel/MarginContainer/VBoxContainer/SubtitleContainer/MarginContainer/SubList
 onready var subContainer = $Panel/MarginContainer/VBoxContainer/SubtitleContainer
 onready var subEntry = preload("res://Scenes/SubEntry.tscn")
 onready var commentEntry = preload("res://Scenes/CommentEntry.tscn")

@@ -28,6 +28,7 @@ margin_left = 114.0
 margin_right = 976.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
+caret_blink = true
 
 [node name="DeleteBtn" type="Button" parent="."]
 margin_left = 980.0
