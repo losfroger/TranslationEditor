@@ -9,11 +9,12 @@ onready var subContainer = $Panel/MarginContainer/VBoxContainer/SubtitleContaine
 onready var subEntry = preload("res://Scenes/Entries/SubEntry.tscn")
 onready var commentEntry = preload("res://Scenes/Entries/CommentEntry.tscn")
 # Popups
-onready var saveSubDialog = $SaveSubFileDialog
-onready var loadSubDialog = $LoadSubFileDialog
-onready var errorDialog = $ErrorDialog
-onready var newFileDialog = $NewFileDialog
-onready var quitDialog = $QuitDialog
+onready var popupContainer = $PopupWindows
+onready var saveSubDialog = $PopupWindows/SaveSubFileDialog
+onready var loadSubDialog = $PopupWindows/LoadSubFileDialog
+onready var errorDialog = $PopupWindows/ErrorDialog
+onready var newFileDialog = $PopupWindows/NewFileDialog
+onready var quitDialog = $PopupWindows/QuitDialog
 
 enum ADD_OPTION {
 	NORMAL,
@@ -36,6 +37,10 @@ func _ready() -> void:
 	get_tree().call_group("sub_entry", "queue_free")
 	fileMenu.get_popup().connect("id_pressed", self, "_on_FileMenu_id_pressed")
 	quitDialog.saveDialog = saveSubDialog
+	
+	for popup in popupContainer.get_children():
+		(popup as Popup).connect("popup_hide", self, "_on_popup_hide")
+		(popup as Popup).connect("about_to_show", self, "_on_popup_show")
 
 
 # Handle quit request
@@ -49,7 +54,7 @@ func _notification(what):
 # SHORTCUTS
 # TODO: Duplicate line
 # TODO: Use the last actor when entering a new one entry
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	# Adding entries
 	if event.get_action_strength("add_entry"):
 		_on_AddEntry_pressed()
@@ -255,6 +260,9 @@ func _on_LoadSubFileDialog_file_selected(path: String) -> void:
 func _on_NewFileDialog_confirmed() -> void:
 	get_tree().call_group("sub_entry", "queue_free")
 
+# Deal with pop ups
+func _on_popup_show() -> void:
+	self.set_process_input(false)
 
-func _on_SaveSubFileDialog_popup_hide() -> void:
-	print("Save canceled")
+func _on_popup_hide() -> void:
+	self.set_process_input(true)
