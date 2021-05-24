@@ -97,6 +97,7 @@ func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null) -> 
 					subList.add_child_below_node(focusOwner.owner, entryInstance)
 					created = true
 	
+	# Check if it was created, in case the focus owner is null
 	if created:
 		yield(get_tree().create_timer(0.1), "timeout")
 		entryInstance.loaded()
@@ -110,6 +111,8 @@ func delete_entry() -> void:
 			var finalIndex = index if index < subList.get_child_count() else subList.get_child_count() - 2
 			
 			focusOwner.owner.queue_free()
+			
+			# In case the list is empty after the delete
 			if finalIndex >= 0:
 				subList.get_child(finalIndex).subText.grab_focus()
 
@@ -117,6 +120,7 @@ func delete_entry() -> void:
 func _on_AddEntry_pressed() -> void:
 	var subInstance = subEntry.instance()
 	
+	# Check if the list is empty or not
 	if subList.get_child_count() > 0:
 		var focusOwner = get_focus_owner()
 		add_entry(subInstance, ADD_OPTION.BELOW_NODE, focusOwner)
