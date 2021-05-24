@@ -164,6 +164,17 @@ func _on_AddComment_pressed() -> void:
 		add_entry(commentInstance)
 
 
+# == DUPLICATE ENTRIES ==
+
+func _on_Duplicate_pressed() -> void:
+	if subList.get_child_count() > 0:
+		var focusOwner = get_focus_owner().owner
+		if is_instance_valid(focusOwner):
+			var duplicatedEntry = focusOwner.duplicate()
+			subList.add_child_below_node(focusOwner, duplicatedEntry)
+			duplicatedEntry.subText.caret_position = 0
+			duplicatedEntry.get_focus()
+
 # == SAVING AND LOADING ==
 # TODO: Save the last place you saved the file and reload it on run
 # TODO: Add confirmation to exit when you have something

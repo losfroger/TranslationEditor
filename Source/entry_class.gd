@@ -21,6 +21,7 @@ func get_focus() -> void:
 	yield(get_tree(), "idle_frame")
 	subText.grab_focus()
 
+
 func change_actor(change) -> void:
 	pass
 
