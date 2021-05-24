@@ -38,10 +38,11 @@ func _ready() -> void:
 	quitDialog.saveDialog = saveSubDialog
 
 
+# Handle quit request
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		if subList.get_child_count() > 0:
-			quitDialog.call_deferred("popup_centered")
+			quitDialog.call_deferred("show")
 		else:
 			get_tree().quit()
 

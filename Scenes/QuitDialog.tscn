@@ -3,6 +3,7 @@
 [ext_resource path="res://Scenes/QuitDialog.gd" type="Script" id=1]
 
 [node name="QuitDialog" type="WindowDialog"]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -73,8 +74,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="about_to_show" from="." to="." method="_on_QuitDialog_about_to_show"]
-[connection signal="focus_entered" from="." to="." method="_on_QuitDialog_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/SaveBtn" to="." method="_on_SaveBtn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CancelBtn" to="." method="_on_Cancel_pressed"]
