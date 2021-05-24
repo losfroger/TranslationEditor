@@ -8,10 +8,6 @@ func _ready() -> void:
 		actorButton.add_item(actor)
 
 
-func loaded() -> void:
-	subText.grab_focus()
-
-
 func change_actor(change) -> void:
 	match change:
 		CHANGE_ACTOR.NEXT:

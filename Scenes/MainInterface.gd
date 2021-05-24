@@ -93,6 +93,7 @@ func move_entry(option = MOVE.UP):
 				index = min(subList.get_child_count(), index + 1)
 		
 		subList.move_child(focusOwner, index)
+		focusOwner.get_focus()
 
 
 func _on_ArrowDown_pressed() -> void:
@@ -105,7 +106,7 @@ func _on_ArrowUp_pressed() -> void:
 
 # == ADDING SUBS AND COMMENTS ==
 
-func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null) -> void:
+func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null, focus = true) -> void:
 	var created = false
 	match option:
 		ADD_OPTION.NORMAL:
@@ -118,10 +119,8 @@ func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null) -> 
 					subList.add_child_below_node(focusOwner.owner, entryInstance)
 					created = true
 	
-	# Check if it was created, in case the focus owner is null
-	if created:
-		yield(get_tree().create_timer(0.1), "timeout")
-		entryInstance.loaded()
+	if focus:
+		entryInstance.get_focus()
 
 
 func delete_entry() -> void:
@@ -164,6 +163,9 @@ func _on_AddComment_pressed() -> void:
 # == SAVING AND LOADING ==
 # TODO: Save the last place you saved the file and reload it on run
 # TODO: Add confirmation to exit when you have something
+# TODO: Rework saving so that it know when you made changes
+# TODO: Load only the actors option
+# TODO: Load from file dropping
 func save_file() -> void:
 	if subList.get_child_count() > 0:
 		saveSubDialog.popup()
@@ -221,14 +223,16 @@ func _on_LoadSubFileDialog_file_selected(path: String) -> void:
 			if "#" in subEntryText:
 				var entryLoad = subEntryText.split("#")
 				var comInstance = commentEntry.instance()
-				add_entry(comInstance)
+				add_entry(comInstance, ADD_OPTION.NORMAL, null, false)
 				comInstance.load_entry(entryLoad[1])
 			else:
 				var entryLoad  = subEntryText.split(":")
 				
 				var subInstance = subEntry.instance()
-				add_entry(subInstance)
+				add_entry(subInstance, ADD_OPTION.NORMAL, null, false)
 				subInstance.load_entry(entryLoad[0], entryLoad[1])
+	
+	subList.get_child(subList.get_child_count() - 1).get_focus()
 	
 	file.close()
 
