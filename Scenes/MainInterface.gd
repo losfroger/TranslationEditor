@@ -40,8 +40,6 @@ func _input(event: InputEvent) -> void:
 	# Adding entries
 	if event.get_action_strength("add_entry"):
 		_on_AddEntry_pressed()
-	if event.get_action_strength("add_entry_below"):
-		_on_AddEntryBelow_pressed()
 	
 	# Delete entry
 	if event.get_action_strength("delete_entry"):
@@ -112,28 +110,28 @@ func delete_entry() -> void:
 			var finalIndex = index if index < subList.get_child_count() else subList.get_child_count() - 2
 			
 			focusOwner.owner.queue_free()
-			subList.get_child(finalIndex).subText.grab_focus()
+			if finalIndex >= 0:
+				subList.get_child(finalIndex).subText.grab_focus()
+
 
 func _on_AddEntry_pressed() -> void:
 	var subInstance = subEntry.instance()
-	add_entry(subInstance)
-
-
-func _on_AddEntryBelow_pressed() -> void:
-	var focusOwner = get_focus_owner()
-	var subInstance = subEntry.instance()
-	add_entry(subInstance, ADD_OPTION.BELOW_NODE, focusOwner)
+	
+	if subList.get_child_count() > 0:
+		var focusOwner = get_focus_owner()
+		add_entry(subInstance, ADD_OPTION.BELOW_NODE, focusOwner)
+	else:
+		add_entry(subInstance)
 
 
 func _on_AddComment_pressed() -> void:
 	var commentInstance = commentEntry.instance()
-	add_entry(commentInstance)
-
-
-func _on_AddCommentBelow_pressed() -> void:
-	var focusOwner = get_focus_owner()
-	var commentInstance = commentEntry.instance()
-	add_entry(commentInstance, ADD_OPTION.BELOW_NODE, focusOwner)
+	
+	if subList.get_child_count() > 0:
+		var focusOwner = get_focus_owner()
+		add_entry(commentInstance, ADD_OPTION.BELOW_NODE, focusOwner)
+	else:
+		add_entry(commentInstance)
 
 
 # == SAVING AND LOADING ==
