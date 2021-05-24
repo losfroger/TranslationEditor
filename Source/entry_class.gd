@@ -1,6 +1,9 @@
 extends HBoxContainer
 
+signal delete()
+
 onready var subText: LineEdit = $SubText
+onready var deleteBtn: TextureButton = $DeleteBtn
 
 enum CHANGE_ACTOR {
 	NEXT, PREVIOUS
@@ -23,4 +26,5 @@ func change_actor(change) -> void:
 
 
 func _on_DeleteBtn_pressed() -> void:
-	queue_free()
+	subText.grab_focus()
+	emit_signal("delete")

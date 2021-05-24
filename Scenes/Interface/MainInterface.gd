@@ -120,6 +120,9 @@ func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null, foc
 					subList.add_child_below_node(focusOwner.owner, entryInstance)
 					created = true
 	
+	if created:
+		entryInstance.connect("delete", self, "delete_entry")
+	
 	if focus:
 		entryInstance.get_focus()
 
@@ -137,7 +140,7 @@ func delete_entry() -> void:
 			
 			# In case the list is empty after the delete
 			if finalIndex >= 0:
-				subList.get_child(finalIndex).subText.grab_focus()
+				subList.get_child(finalIndex).get_focus()
 
 
 func _on_AddEntry_pressed() -> void:

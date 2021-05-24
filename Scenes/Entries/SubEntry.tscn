@@ -17,7 +17,7 @@ __meta__ = {
 
 [node name="ActorButton" type="OptionButton" parent="."]
 margin_right = 75.0
-margin_bottom = 38.0
+margin_bottom = 25.0
 rect_min_size = Vector2( 75, 0 )
 hint_tooltip = "Changes the actor that says the dialogue.
 You can use (Alt+Bracket left) or (Alt+Bracket right) to change the actor rapidly"
@@ -30,9 +30,14 @@ align = 2
 
 [node name="SubText" type="LineEdit" parent="."]
 margin_left = 79.0
-margin_right = 137.0
-margin_bottom = 38.0
+margin_right = 145.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 caret_blink = true
 
 [node name="DeleteBtn" parent="." instance=ExtResource( 1 )]
+margin_left = 149.0
+margin_right = 165.0
+margin_bottom = 25.0
+
+[connection signal="pressed" from="DeleteBtn" to="." method="_on_DeleteBtn_pressed"]
