@@ -17,6 +17,12 @@ enum ADD_OPTION {
 	NORMAL,
 	BELOW_NODE
 }
+
+enum MOVE {
+	UP,
+	DOWN
+}
+
 # TODO: Add functionality to the actor menu
 
 func _enter_tree() -> void:
@@ -41,6 +47,12 @@ func _input(event: InputEvent) -> void:
 	if event.get_action_strength("delete_entry"):
 		delete_entry()
 	
+	# Move entry
+	if event.get_action_strength("move_up"):
+		move_entry(MOVE.UP)
+	if event.get_action_strength("move_down"):
+		move_entry(MOVE.DOWN)
+	
 	# Change actors
 	if event.get_action_strength("next_actor"):
 		var focusOwner = get_focus_owner().owner
@@ -55,6 +67,22 @@ func _input(event: InputEvent) -> void:
 		save_file()
 	if event.get_action_strength("load_file"):
 		loadSubDialog.popup()
+
+
+# == MOVE ENTRIES ==
+
+func move_entry(option = MOVE.UP):
+	print("Move")
+	var focusOwner = get_focus_owner().owner
+	var index = get_focus_owner().owner.get_index()
+	
+	match option:
+		MOVE.UP:
+			index = max(0, index - 1)
+		MOVE.DOWN:
+			index = min(subList.get_child_count(), index + 1)
+	
+	subList.move_child(focusOwner, index)
 
 # == ADDING SUBS AND COMMENTS ==
 
