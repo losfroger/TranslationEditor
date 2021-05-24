@@ -70,17 +70,26 @@ func _input(event: InputEvent) -> void:
 # == MOVE ENTRIES ==
 
 func move_entry(option = MOVE.UP):
-	print("Move")
-	var focusOwner = get_focus_owner().owner
-	var index = get_focus_owner().owner.get_index()
-	
-	match option:
-		MOVE.UP:
-			index = max(0, index - 1)
-		MOVE.DOWN:
-			index = min(subList.get_child_count(), index + 1)
-	
-	subList.move_child(focusOwner, index)
+	if is_instance_valid(get_focus_owner()):
+		var focusOwner = get_focus_owner().owner
+		var index = get_focus_owner().owner.get_index()
+		
+		match option:
+			MOVE.UP:
+				index = max(0, index - 1)
+			MOVE.DOWN:
+				index = min(subList.get_child_count(), index + 1)
+		
+		subList.move_child(focusOwner, index)
+
+
+func _on_ArrowDown_pressed() -> void:
+	move_entry(MOVE.DOWN)
+
+
+func _on_ArrowUp_pressed() -> void:
+	move_entry(MOVE.UP)
+
 
 # == ADDING SUBS AND COMMENTS ==
 
@@ -92,7 +101,7 @@ func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null) -> 
 			created = true
 		
 		ADD_OPTION.BELOW_NODE:
-			if focusOwner != null:
+			if is_instance_valid(focusOwner):
 				if focusOwner.owner.is_in_group("sub_entry"):
 					subList.add_child_below_node(focusOwner.owner, entryInstance)
 					created = true
@@ -105,7 +114,7 @@ func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null) -> 
 
 func delete_entry() -> void:
 	var focusOwner = get_focus_owner()
-	if focusOwner != null:
+	if is_instance_valid(focusOwner):
 		if focusOwner.owner.is_in_group("sub_entry"):
 			var index = focusOwner.owner.get_index() + 1
 			var finalIndex = index if index < subList.get_child_count() else subList.get_child_count() - 2
@@ -205,4 +214,3 @@ func _on_LoadSubFileDialog_file_selected(path: String) -> void:
 				subInstance.load_entry(entryLoad[0], entryLoad[1])
 	
 	file.close()
-
