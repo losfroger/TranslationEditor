@@ -8,6 +8,7 @@ enum CHANGE_ACTOR {
 
 
 # TODO: Make buttons to change the order of the subs
+# TODO: Add ability to change an actors color
 func loaded() -> void:
 	subText.grab_focus()
 
