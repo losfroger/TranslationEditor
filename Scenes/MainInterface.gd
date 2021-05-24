@@ -12,6 +12,7 @@ onready var commentEntry = preload("res://Scenes/CommentEntry.tscn")
 onready var saveSubDialog = $SaveSubFileDialog
 onready var loadSubDialog = $LoadSubFileDialog
 onready var errorDialog = $ErrorDialog
+onready var newFileDialog = $NewFileDialog
 
 enum ADD_OPTION {
 	NORMAL,
@@ -117,7 +118,9 @@ func delete_entry() -> void:
 	if is_instance_valid(focusOwner):
 		if focusOwner.owner.is_in_group("sub_entry"):
 			var index = focusOwner.owner.get_index() + 1
-			var finalIndex = index if index < subList.get_child_count() else subList.get_child_count() - 2
+			var finalIndex = (index 
+				if index < subList.get_child_count() 
+				else subList.get_child_count() - 2)
 			
 			focusOwner.owner.queue_free()
 			
@@ -164,6 +167,9 @@ func _on_FileMenu_id_pressed(id: int) -> void:
 			save_file()
 		1: # Load
 			loadSubDialog.popup()
+		2: # New
+			if subList.get_child_count() > 0:
+				newFileDialog.popup_centered()
 
 
 # Save File
@@ -214,3 +220,7 @@ func _on_LoadSubFileDialog_file_selected(path: String) -> void:
 				subInstance.load_entry(entryLoad[0], entryLoad[1])
 	
 	file.close()
+
+
+func _on_NewFileDialog_confirmed() -> void:
+	get_tree().call_group("sub_entry", "queue_free")
