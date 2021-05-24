@@ -11,14 +11,14 @@ scancode = 16777221
 [sub_resource type="ShortCut" id=2]
 shortcut = SubResource( 1 )
 
-[sub_resource type="InputEventKey" id=7]
+[sub_resource type="InputEventKey" id=3]
 control = true
 command = true
 pressed = true
 scancode = 92
 
 [sub_resource type="ShortCut" id=4]
-shortcut = SubResource( 7 )
+shortcut = SubResource( 3 )
 
 [sub_resource type="InputEventKey" id=5]
 pressed = true
@@ -27,13 +27,13 @@ scancode = 16777221
 [sub_resource type="ShortCut" id=6]
 shortcut = SubResource( 5 )
 
-[sub_resource type="InputEventKey" id=8]
+[sub_resource type="InputEventKey" id=7]
 alt = true
 pressed = true
 scancode = 92
 
-[sub_resource type="ShortCut" id=9]
-shortcut = SubResource( 8 )
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -138,7 +138,7 @@ margin_right = 486.0
 margin_bottom = 20.0
 hint_tooltip = "Add comment to the bottom"
 focus_mode = 0
-shortcut = SubResource( 9 )
+shortcut = SubResource( 8 )
 text = "Add comment below"
 
 [node name="HSeparator3" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer"]
