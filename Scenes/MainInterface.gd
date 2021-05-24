@@ -13,6 +13,7 @@ onready var saveSubDialog = $SaveSubFileDialog
 onready var loadSubDialog = $LoadSubFileDialog
 onready var errorDialog = $ErrorDialog
 onready var newFileDialog = $NewFileDialog
+onready var quitDialog = $QuitDialog
 
 enum ADD_OPTION {
 	NORMAL,
@@ -30,9 +31,19 @@ func _enter_tree() -> void:
 	ProjectSettings.set_setting("display/window/size/always_on_top", true)
 	print(ProjectSettings.get_setting("display/window/size/always_on_top"))
 
+
 func _ready() -> void:
 	get_tree().call_group("sub_entry", "queue_free")
 	fileMenu.get_popup().connect("id_pressed", self, "_on_FileMenu_id_pressed")
+	quitDialog.saveDialog = saveSubDialog
+
+
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		if subList.get_child_count() > 0:
+			quitDialog.call_deferred("popup_centered")
+		else:
+			get_tree().quit()
 
 # SHORTCUTS
 # TODO: Duplicate line
@@ -224,3 +235,7 @@ func _on_LoadSubFileDialog_file_selected(path: String) -> void:
 
 func _on_NewFileDialog_confirmed() -> void:
 	get_tree().call_group("sub_entry", "queue_free")
+
+
+func _on_SaveSubFileDialog_popup_hide() -> void:
+	print("Save canceled")
