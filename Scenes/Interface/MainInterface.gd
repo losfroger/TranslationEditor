@@ -6,8 +6,8 @@ onready var actorMenu = $Panel/MarginContainer/VBoxContainer/Menus/ActorMenu
 # Subs
 onready var subList = $Panel/MarginContainer/VBoxContainer/SubtitleContainer/MarginContainer/SubList
 onready var subContainer = $Panel/MarginContainer/VBoxContainer/SubtitleContainer
-onready var subEntry = preload("res://Scenes/SubEntry.tscn")
-onready var commentEntry = preload("res://Scenes/CommentEntry.tscn")
+onready var subEntry = preload("res://Scenes/Entries/SubEntry.tscn")
+onready var commentEntry = preload("res://Scenes/Entries/CommentEntry.tscn")
 # Popups
 onready var saveSubDialog = $SaveSubFileDialog
 onready var loadSubDialog = $LoadSubFileDialog
