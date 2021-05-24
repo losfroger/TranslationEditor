@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/QuitDialog.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Interface/QuitDialog.gd" type="Script" id=1]
 
 [node name="QuitDialog" type="WindowDialog"]
 anchor_left = 0.5

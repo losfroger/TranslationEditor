@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/SubEntry.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Icons/Close.svg" type="Texture" id=2]
+[ext_resource path="res://Assets/Icons/Close.svg" type="Texture" id=1]
+[ext_resource path="res://Scenes/Entries/SubEntry.gd" type="Script" id=2]
 
 [node name="SubEntry" type="HBoxContainer" groups=[
 "sub_entry",
@@ -10,7 +10,7 @@ margin_right = 165.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 0, 25 )
 size_flags_horizontal = 3
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,7 +42,7 @@ margin_bottom = 38.0
 hint_tooltip = "(Alt+Backspace)
 Delete entry"
 focus_mode = 0
-icon = ExtResource( 2 )
+icon = ExtResource( 1 )
 flat = true
 
 [connection signal="pressed" from="DeleteBtn" to="." method="_on_DeleteBtn_pressed"]
