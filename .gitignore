@@ -1,3 +1,6 @@
+# Ignore vscode folder
+.vscode/
+
 # Godot 4+ specific ignores
 .godot/
 
@@ -25,3 +28,6 @@ Export/*
 
 # Ignore txt files
 *.txt
+
+# Ignore readme imports
+Images/*.import
