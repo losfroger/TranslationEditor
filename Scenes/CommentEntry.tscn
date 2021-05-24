@@ -8,7 +8,7 @@
 ]]
 margin_right = 1004.0
 margin_bottom = 31.0
-rect_min_size = Vector2( 0, 20 )
+rect_min_size = Vector2( 0, 25 )
 size_flags_vertical = 0
 script = ExtResource( 2 )
 __meta__ = {
@@ -34,6 +34,9 @@ size_flags_vertical = 3
 margin_left = 980.0
 margin_right = 1004.0
 margin_bottom = 31.0
+hint_tooltip = "(Alt+Backspace)
+Delete entry"
+focus_mode = 0
 icon = ExtResource( 1 )
 flat = true
 

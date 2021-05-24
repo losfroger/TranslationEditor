@@ -39,6 +39,9 @@ caret_blink = true
 margin_left = 141.0
 margin_right = 165.0
 margin_bottom = 25.0
+hint_tooltip = "(Alt+Backspace)
+Delete entry"
+focus_mode = 0
 icon = ExtResource( 2 )
 flat = true
 

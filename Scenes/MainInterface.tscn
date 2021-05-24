@@ -6,8 +6,6 @@
 [ext_resource path="res://Scenes/QuitDialog.tscn" type="PackedScene" id=4]
 
 [sub_resource type="InputEventKey" id=1]
-control = true
-command = true
 pressed = true
 scancode = 16777221
 
@@ -118,8 +116,8 @@ margin_left = 214.0
 margin_right = 239.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
-hint_tooltip = "Move entry down
-(Alt+Down)"
+hint_tooltip = "(Alt+Down)
+Move entry down"
 focus_mode = 0
 texture_normal = ExtResource( 1 )
 expand = true
@@ -130,8 +128,8 @@ margin_left = 250.0
 margin_right = 275.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
-hint_tooltip = "Move entry down
-(Alt+Up)"
+hint_tooltip = "(Alt+Up)
+Move entry down"
 focus_mode = 0
 texture_normal = ExtResource( 3 )
 expand = true
@@ -248,7 +246,6 @@ Do you want to continue?"
 dialog_autowrap = true
 
 [node name="QuitDialog" parent="." instance=ExtResource( 4 )]
-visible = false
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SubButtons/AddEntry" to="." method="_on_AddEntry_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SubButtons/AddComment" to="." method="_on_AddComment_pressed"]
