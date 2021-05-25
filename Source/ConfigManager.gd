@@ -12,6 +12,7 @@ var _settings = {
 
 
 func _ready():
+	OS.min_window_size = Vector2(630, 342)
 	load_settings()
 	print(_settings)
 

@@ -120,26 +120,26 @@ custom_constants/separation = 9
 
 [node name="Menus" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
 margin_right = 650.0
-margin_bottom = 25.0
+margin_bottom = 27.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="FileMenu" type="MenuButton" parent="Panel/MarginContainer/VBoxContainer/Menus"]
-margin_right = 33.0
-margin_bottom = 25.0
+margin_right = 37.0
+margin_bottom = 27.0
 text = "File"
 items = [ "New...", null, 0, false, false, 2, 0, null, "", false, "", null, 0, false, false, 99, 0, null, "", true, "Save...  (Ctrl+S)", null, 0, false, false, 0, 0, null, "", false, "Load...  (Ctrl+O)", null, 0, false, false, 1, 0, null, "", false ]
 
 [node name="ActorMenu" type="MenuButton" parent="Panel/MarginContainer/VBoxContainer/Menus"]
-margin_left = 37.0
-margin_right = 90.0
-margin_bottom = 25.0
+margin_left = 41.0
+margin_right = 98.0
+margin_bottom = 27.0
 text = "Actors"
 items = [ "Add actor", null, 0, false, false, 0, 0, null, "", false, "Edit actors", null, 0, false, false, 1, 0, null, "", false, "", null, 0, false, true, 999, 0, null, "", true, "Load actors from file... ", null, 0, false, false, 2, 0, null, "", false ]
 
 [node name="MainInterfacePanel" type="Panel" parent="Panel/MarginContainer/VBoxContainer"]
-margin_top = 34.0
+margin_top = 36.0
 margin_right = 650.0
 margin_bottom = 730.0
 size_flags_vertical = 3
@@ -160,47 +160,49 @@ __meta__ = {
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 640.0
-margin_bottom = 686.0
+margin_bottom = 684.0
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ToolBarContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer"]
-margin_right = 630.0
-margin_bottom = 25.0
+margin_left = 30.0
+margin_right = 599.0
+margin_bottom = 27.0
+size_flags_horizontal = 6
 size_flags_vertical = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SubButtons" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer"]
-margin_right = 630.0
-margin_bottom = 25.0
+margin_right = 569.0
+margin_bottom = 27.0
 custom_constants/separation = 11
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AddEntry" type="Button" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_right = 72.0
-margin_bottom = 25.0
+margin_right = 79.0
+margin_bottom = 27.0
 hint_tooltip = "Add translation entry to the bottom"
 focus_mode = 0
 shortcut = SubResource( 4 )
 text = "Add entry"
 
 [node name="AddTL" type="Button" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 83.0
-margin_right = 174.0
-margin_bottom = 25.0
+margin_left = 90.0
+margin_right = 192.0
+margin_bottom = 27.0
 focus_mode = 0
 text = "Add TL entry"
 
 [node name="AddComment" type="Button" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 185.0
-margin_right = 284.0
-margin_bottom = 25.0
+margin_left = 203.0
+margin_right = 314.0
+margin_bottom = 27.0
 hint_tooltip = "Add comment to the bottom"
 focus_mode = 0
 shortcut = SubResource( 6 )
@@ -208,14 +210,14 @@ text = "Add comment"
 align = 0
 
 [node name="VSeparator" type="VSeparator" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 295.0
-margin_right = 299.0
-margin_bottom = 25.0
+margin_left = 325.0
+margin_right = 329.0
+margin_bottom = 27.0
 
 [node name="ArrowDown" type="TextureButton" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 310.0
-margin_right = 335.0
-margin_bottom = 25.0
+margin_left = 340.0
+margin_right = 365.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 25, 25 )
 hint_tooltip = "(Alt+Down)
 Move entry down"
@@ -225,9 +227,9 @@ expand = true
 stretch_mode = 5
 
 [node name="ArrowUp" type="TextureButton" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 346.0
-margin_right = 371.0
-margin_bottom = 25.0
+margin_left = 376.0
+margin_right = 401.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 25, 25 )
 hint_tooltip = "(Alt+Up)
 Move entry down"
@@ -237,9 +239,9 @@ expand = true
 stretch_mode = 5
 
 [node name="Duplicate" type="TextureButton" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 382.0
-margin_right = 407.0
-margin_bottom = 25.0
+margin_left = 412.0
+margin_right = 437.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 25, 25 )
 hint_tooltip = "Duplicate"
 focus_mode = 0
@@ -250,15 +252,15 @@ expand = true
 stretch_mode = 5
 
 [node name="VSeparator2" type="VSeparator" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 519.0
-margin_right = 523.0
-margin_bottom = 25.0
+margin_left = 448.0
+margin_right = 452.0
+margin_bottom = 27.0
 size_flags_horizontal = 10
 
 [node name="Translate" type="TextureButton" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 534.0
-margin_right = 559.0
-margin_bottom = 25.0
+margin_left = 463.0
+margin_right = 488.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 25, 25 )
 hint_tooltip = "Send the TL entries to translate
 
@@ -272,17 +274,19 @@ expand = true
 stretch_mode = 5
 
 [node name="TranslateTo" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 570.0
-margin_right = 630.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 60, 0 )
+margin_left = 499.0
+margin_right = 569.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 70, 0 )
 hint_tooltip = "Select to which language it'll be translating to"
 focus_mode = 0
+text = "es"
+clip_text = true
 
 [node name="SubtitleContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer"]
-margin_top = 35.0
+margin_top = 37.0
 margin_right = 630.0
-margin_bottom = 676.0
+margin_bottom = 674.0
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 9 )
 follow_focus = true
@@ -290,7 +294,7 @@ scroll_horizontal_enabled = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/SubtitleContainer"]
 margin_right = 630.0
-margin_bottom = 641.0
+margin_bottom = 637.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 10
@@ -302,10 +306,10 @@ custom_constants/margin_bottom = 10
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 620.0
-margin_bottom = 631.0
+margin_bottom = 627.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 5
+custom_constants/separation = 10
 
 [node name="PopupWindows" type="Control" parent="."]
 anchor_right = 1.0
