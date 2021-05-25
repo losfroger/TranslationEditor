@@ -21,3 +21,7 @@ func set_translated(newValue: bool):
 
 func _on_SubText_text_changed(new_text: String) -> void:
 	self.translated = false
+
+
+func get_text():
+	return actorButton.get_item_text(actorButton.get_selected_id()) + ": " + tlText.text
