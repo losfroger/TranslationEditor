@@ -48,7 +48,7 @@ func _notification(what):
 
 # SHORTCUTS
 # TODO: Use the last actor when entering a new one entry
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	# Adding entries
 	if event.get_action_strength("add_entry"):
 		EntryHandler._on_AddEntry_pressed()
