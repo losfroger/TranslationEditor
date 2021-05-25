@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Icons/MoveUp.svg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Interface/MainInterface.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Source/TranslationHandler.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Interface/AddActor.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Theme/Theme.tres" type="Theme" id=11]
+[ext_resource path="res://Assets/Icons/Remove.svg" type="Texture" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.12549, 0.145098, 0.192157, 1 )
@@ -21,13 +22,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="InputEventKey" id=3]
-pressed = true
-scancode = 16777221
-
-[sub_resource type="ShortCut" id=4]
-shortcut = SubResource( 3 )
 
 [sub_resource type="InputEventKey" id=5]
 control = true
@@ -167,8 +161,8 @@ __meta__ = {
 }
 
 [node name="ToolBarContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer"]
-margin_left = 30.0
-margin_right = 599.0
+margin_left = 59.0
+margin_right = 571.0
 margin_bottom = 27.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -177,7 +171,7 @@ __meta__ = {
 }
 
 [node name="SubButtons" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer"]
-margin_right = 569.0
+margin_right = 512.0
 margin_bottom = 27.0
 custom_constants/separation = 11
 __meta__ = {
@@ -185,38 +179,38 @@ __meta__ = {
 }
 
 [node name="AddEntry" type="Button" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_right = 79.0
+margin_right = 48.0
 margin_bottom = 27.0
-hint_tooltip = "Add translation entry to the bottom"
+hint_tooltip = "(Enter)
+Add translation entry to the bottom"
 focus_mode = 0
-shortcut = SubResource( 4 )
-text = "Add entry"
+text = "Entry"
 
 [node name="AddTL" type="Button" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 90.0
-margin_right = 192.0
+margin_left = 59.0
+margin_right = 129.0
 margin_bottom = 27.0
 focus_mode = 0
-text = "Add TL entry"
+text = "TL entry"
 
 [node name="AddComment" type="Button" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 203.0
-margin_right = 314.0
+margin_left = 140.0
+margin_right = 221.0
 margin_bottom = 27.0
 hint_tooltip = "Add comment to the bottom"
 focus_mode = 0
 shortcut = SubResource( 6 )
-text = "Add comment"
+text = "Comment"
 align = 0
 
 [node name="VSeparator" type="VSeparator" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 325.0
-margin_right = 329.0
+margin_left = 232.0
+margin_right = 236.0
 margin_bottom = 27.0
 
 [node name="ArrowDown" type="TextureButton" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 340.0
-margin_right = 365.0
+margin_left = 247.0
+margin_right = 272.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 25, 25 )
 hint_tooltip = "(Alt+Down)
@@ -227,8 +221,8 @@ expand = true
 stretch_mode = 5
 
 [node name="ArrowUp" type="TextureButton" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 376.0
-margin_right = 401.0
+margin_left = 283.0
+margin_right = 308.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 25, 25 )
 hint_tooltip = "(Alt+Up)
@@ -239,8 +233,8 @@ expand = true
 stretch_mode = 5
 
 [node name="Duplicate" type="TextureButton" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 412.0
-margin_right = 437.0
+margin_left = 319.0
+margin_right = 344.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 25, 25 )
 hint_tooltip = "Duplicate"
@@ -251,15 +245,24 @@ texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
+[node name="Delete" type="TextureButton" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
+margin_left = 355.0
+margin_right = 380.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 25, 25 )
+texture_normal = ExtResource( 12 )
+expand = true
+stretch_mode = 5
+
 [node name="VSeparator2" type="VSeparator" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 448.0
-margin_right = 452.0
+margin_left = 391.0
+margin_right = 395.0
 margin_bottom = 27.0
 size_flags_horizontal = 10
 
 [node name="Translate" type="TextureButton" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 463.0
-margin_right = 488.0
+margin_left = 406.0
+margin_right = 431.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 25, 25 )
 hint_tooltip = "Send the TL entries to translate
@@ -274,8 +277,8 @@ expand = true
 stretch_mode = 5
 
 [node name="TranslateTo" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons"]
-margin_left = 499.0
-margin_right = 569.0
+margin_left = 442.0
+margin_right = 512.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 70, 0 )
 hint_tooltip = "Select to which language it'll be translating to"
@@ -312,6 +315,7 @@ size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="PopupWindows" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
