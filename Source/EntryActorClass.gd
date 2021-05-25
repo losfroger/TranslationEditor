@@ -32,3 +32,13 @@ func load_entry(actor: String, text: String):
 
 func get_text():
 	return actorButton.get_item_text(actorButton.get_selected_id()) + ": " + subText.text
+
+
+func update_actor_list():
+	var auxSelect = actorButton.selected
+	actorButton.clear()
+	
+	for actor in ActorGlobal.actorList:
+		actorButton.add_item(actor)
+	
+	actorButton.selected = auxSelect

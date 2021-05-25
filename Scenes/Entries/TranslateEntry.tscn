@@ -4,6 +4,7 @@
 [ext_resource path="res://Scenes/Entries/TranslateEntry.gd" type="Script" id=2]
 
 [node name="TranslateEntry" type="HBoxContainer" groups=[
+"actor_entry",
 "sub_entry",
 ]]
 anchor_right = 1.0

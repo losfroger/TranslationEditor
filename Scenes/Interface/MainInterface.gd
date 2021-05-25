@@ -10,11 +10,15 @@ onready var EntryHandler = $EntryHandler
 onready var SaveHandler = $SaveHandler
 # Popups
 onready var popupContainer = $PopupWindows
+
 onready var saveSubDialog = $PopupWindows/SaveSubFileDialog
 onready var loadSubDialog = $PopupWindows/LoadSubFileDialog
-onready var errorDialog = $PopupWindows/ErrorDialog
 onready var newFileDialog = $PopupWindows/NewFileDialog
+
+onready var errorDialog = $PopupWindows/ErrorDialog
 onready var quitDialog = $PopupWindows/QuitDialog
+
+onready var addActorDialog = $PopupWindows/AddActor
 
 # TODO: Add functionality to the actor menu
 
@@ -26,6 +30,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	#get_tree().call_group("sub_entry", "queue_free")
 	fileMenu.get_popup().connect("id_pressed", self, "_on_FileMenu_id_pressed")
+	actorMenu.get_popup().connect("id_pressed", self, "_on_ActorMenu_id_pressed")
 	quitDialog.saveDialog = saveSubDialog
 	
 	for popup in popupContainer.get_children():
@@ -91,6 +96,12 @@ func _on_FileMenu_id_pressed(id: int) -> void:
 		2: # New
 			if subList.get_child_count() > 0:
 				newFileDialog.popup_centered()
+
+
+func _on_ActorMenu_id_pressed(id: int) -> void:
+	match id:
+		0: # Add
+			addActorDialog.popup()
 
 
 # Deal with pop ups

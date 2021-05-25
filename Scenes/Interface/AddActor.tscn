@@ -1,0 +1,114 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Interface/AddActor.gd" type="Script" id=1]
+
+[node name="AddActor" type="WindowDialog"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -104.0
+margin_top = -71.0
+margin_right = 104.0
+margin_bottom = 70.0
+popup_exclusive = true
+window_title = "Add actor"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 198.0
+margin_bottom = 131.0
+custom_constants/separation = 5
+
+[node name="NameContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 188.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/NameContainer"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 60, 0 )
+text = "Name:"
+
+[node name="Name" type="LineEdit" parent="MarginContainer/VBoxContainer/NameContainer"]
+margin_left = 64.0
+margin_right = 188.0
+margin_bottom = 24.0
+hint_tooltip = "Actor name
+(Max 7 characters)"
+size_flags_horizontal = 3
+max_length = 7
+placeholder_text = "Actor"
+
+[node name="ColorContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 29.0
+margin_right = 188.0
+margin_bottom = 49.0
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/ColorContainer"]
+margin_top = 3.0
+margin_right = 60.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 60, 0 )
+text = "Color:"
+
+[node name="Color" type="ColorPickerButton" parent="MarginContainer/VBoxContainer/ColorContainer"]
+margin_left = 64.0
+margin_right = 188.0
+margin_bottom = 20.0
+hint_tooltip = "Color for the actor
+(Not yet implemented)"
+size_flags_horizontal = 3
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+
+[node name="Warning" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 71.0
+margin_right = 188.0
+margin_bottom = 85.0
+size_flags_vertical = 10
+custom_colors/font_color = Color( 0.952941, 0.188235, 0.188235, 1 )
+text = "Actor already exists"
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 101.0
+margin_right = 188.0
+margin_bottom = 121.0
+size_flags_horizontal = 11
+size_flags_vertical = 10
+
+[node name="Accept" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+margin_right = 92.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Accept"
+
+[node name="Cancel" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+margin_left = 96.0
+margin_right = 188.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Cancel"
+
+[connection signal="about_to_show" from="." to="." method="_on_AddActor_about_to_show"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Accept" to="." method="_on_Accept_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Cancel" to="." method="_on_Cancel_pressed"]

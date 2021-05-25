@@ -4,6 +4,7 @@
 [ext_resource path="res://Scenes/Entries/SubEntry.gd" type="Script" id=2]
 
 [node name="SubEntry" type="HBoxContainer" groups=[
+"actor_entry",
 "sub_entry",
 ]]
 margin_right = 165.0
