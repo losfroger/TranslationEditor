@@ -13,9 +13,27 @@ _global_script_classes=[ {
 "class": "CommonNode",
 "language": "GDScript",
 "path": "res://addons/project_map/pm_common_node.gd"
+}, {
+"base": "HBoxContainer",
+"class": "Entry",
+"language": "GDScript",
+"path": "res://Source/EntryClass.gd"
+}, {
+"base": "Entry",
+"class": "EntryActor",
+"language": "GDScript",
+"path": "res://Source/EntryActorClass.gd"
+}, {
+"base": "EntryActor",
+"class": "EntryTranslate",
+"language": "GDScript",
+"path": "res://Scenes/Entries/TranslateEntry.gd"
 } ]
 _global_script_class_icons={
-"CommonNode": ""
+"CommonNode": "",
+"Entry": "",
+"EntryActor": "",
+"EntryTranslate": ""
 }
 
 [application]
@@ -28,6 +46,7 @@ config/auto_accept_quit=false
 [autoload]
 
 ActorGlobal="*res://Source/actor_global.gd"
+ConfigManager="*res://Source/ConfigManager.gd"
 
 [display]
 

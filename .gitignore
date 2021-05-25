@@ -29,5 +29,8 @@ Export/*
 # Ignore txt files
 *.txt
 
+# Ignore config file
+*.cfg
+
 # Ignore readme imports
 Images/*.import

@@ -26,10 +26,14 @@ Kiara: Dijiste que ya estaba bien si veníamos
 <img src="Images/ExampleUse.jpg" alt="drawing" width="800"/>
 As you can see, it can be used with a video watching program. The tool will always stay on top so it's easy to use over a video.
 
+## Translate Entry
+There's a TL entry, it uses Microsoft's Azure cloud. But you need to get your own API key and put it in your config.cfg file. You can follow this link to get more info about [Azure's translator API](https://azure.microsoft.com/en-us/services/cognitive-services/translator/).
+
+This could potentially be adapted in the future to use another API like DeepL or Google Translate.
+
 ## Todo:
 - Make an interface to manage the actors in the scene (right now you can load a file with the actors like in the export example)
   - Ability to change an actors color
 - Make save function, right now when saving it always is like save as
 - Remember the last path you loaded or exported to
 - Spell check
-- Maybe in the future make a special kind of entry, where you type the line in the original language and it gives you the translation on the other side, this via google translate or DeepL

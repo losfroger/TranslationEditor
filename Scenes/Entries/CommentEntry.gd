@@ -1,5 +1,7 @@
-extends "res://Source/entry_class.gd"
+extends Entry
 
+func _ready() -> void:
+	subText = $SubText
 
 func load_entry(text: String):
 	subText.text = text.right(1)

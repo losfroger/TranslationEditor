@@ -5,6 +5,7 @@ onready var subList = $"../Panel/MarginContainer/VBoxContainer/SubtitleContainer
 onready var subContainer = $"../Panel/MarginContainer/VBoxContainer/SubtitleContainer"
 onready var subEntry = preload("res://Scenes/Entries/SubEntry.tscn")
 onready var commentEntry = preload("res://Scenes/Entries/CommentEntry.tscn")
+onready var tlEntry = preload("res://Scenes/Entries/TranslateEntry.tscn")
 
 enum ADD_OPTION {
 	NORMAL,
@@ -61,7 +62,8 @@ func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null, foc
 		entryInstance.connect("delete", self, "delete_entry")
 	
 	if focus:
-		entryInstance.get_focus()
+		pass
+		#entryInstance.get_focus()
 
 
 func delete_entry() -> void:
@@ -100,6 +102,15 @@ func _on_AddComment_pressed() -> void:
 	else:
 		add_entry(commentInstance)
 
+
+func _on_AddTL_pressed() -> void:
+	var tlInstance = tlEntry.instance()
+	
+	if subList.get_child_count() > 0:
+		var focusOwner = get_focus_owner()
+		add_entry(tlInstance, ADD_OPTION.BELOW_NODE, focusOwner)
+	else:
+		add_entry(tlInstance)
 
 # == DUPLICATE ENTRIES ==
 

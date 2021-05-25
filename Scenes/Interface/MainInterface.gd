@@ -24,7 +24,7 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
-	get_tree().call_group("sub_entry", "queue_free")
+	#get_tree().call_group("sub_entry", "queue_free")
 	fileMenu.get_popup().connect("id_pressed", self, "_on_FileMenu_id_pressed")
 	quitDialog.saveDialog = saveSubDialog
 	

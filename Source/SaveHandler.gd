@@ -4,7 +4,6 @@ onready var EntryHandler = $"../EntryHandler"
 
 # == SAVING AND LOADING ==
 # TODO: Save the last place you saved the file and reload it on run
-# TODO: Add confirmation to exit when you have something
 # TODO: Rework saving so that it know when you made changes
 # TODO: Load only the actors option
 # TODO: Load from file dropping

@@ -1,8 +1,9 @@
 extends HBoxContainer
+class_name Entry
 
 signal delete()
 
-onready var subText: LineEdit = $SubText
+var subText: LineEdit
 onready var deleteBtn: TextureButton = $DeleteBtn
 
 enum CHANGE_ACTOR {
@@ -10,7 +11,6 @@ enum CHANGE_ACTOR {
 }
 
 
-# TODO: Make buttons to change the order of the subs
 # TODO: Add ability to change an actors color
 func get_text() -> void:
 	pass
