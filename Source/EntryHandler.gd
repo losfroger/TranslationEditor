@@ -1,0 +1,113 @@
+extends Control
+
+# Subs
+onready var subList = $"../Panel/MarginContainer/VBoxContainer/SubtitleContainer/MarginContainer/SubList"
+onready var subContainer = $"../Panel/MarginContainer/VBoxContainer/SubtitleContainer"
+onready var subEntry = preload("res://Scenes/Entries/SubEntry.tscn")
+onready var commentEntry = preload("res://Scenes/Entries/CommentEntry.tscn")
+
+enum ADD_OPTION {
+	NORMAL,
+	BELOW_NODE
+}
+
+enum MOVE {
+	UP,
+	DOWN
+}
+
+
+# == MOVE ENTRIES ==
+
+func move_entry(option = MOVE.UP):
+	if is_instance_valid(get_focus_owner()):
+		var focusOwner = get_focus_owner().owner
+		var index = get_focus_owner().owner.get_index()
+		
+		match option:
+			MOVE.UP:
+				index = max(0, index - 1)
+			MOVE.DOWN:
+				index = min(subList.get_child_count(), index + 1)
+		
+		subList.move_child(focusOwner, index)
+		focusOwner.get_focus()
+
+
+func _on_ArrowDown_pressed() -> void:
+	move_entry(MOVE.DOWN)
+
+
+func _on_ArrowUp_pressed() -> void:
+	move_entry(MOVE.UP)
+
+
+# == ADDING SUBS AND COMMENTS ==
+
+func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null, focus = true) -> void:
+	var created = false
+	match option:
+		ADD_OPTION.NORMAL:
+			subList.add_child(entryInstance)
+			created = true
+		
+		ADD_OPTION.BELOW_NODE:
+			if is_instance_valid(focusOwner):
+				if focusOwner.owner.is_in_group("sub_entry"):
+					subList.add_child_below_node(focusOwner.owner, entryInstance)
+					created = true
+	
+	if created:
+		entryInstance.connect("delete", self, "delete_entry")
+	
+	if focus:
+		entryInstance.get_focus()
+
+
+func delete_entry() -> void:
+	var focusOwner = get_focus_owner()
+	if is_instance_valid(focusOwner):
+		if focusOwner.owner.is_in_group("sub_entry"):
+			var index = focusOwner.owner.get_index() + 1
+			var finalIndex = (index 
+				if index < subList.get_child_count() 
+				else subList.get_child_count() - 2)
+			
+			focusOwner.owner.queue_free()
+			
+			# In case the list is empty after the delete
+			if finalIndex >= 0:
+				subList.get_child(finalIndex).get_focus()
+
+
+func _on_AddEntry_pressed() -> void:
+	var subInstance = subEntry.instance()
+	
+	# Check if the list is empty or not
+	if subList.get_child_count() > 0:
+		var focusOwner = get_focus_owner()
+		add_entry(subInstance, ADD_OPTION.BELOW_NODE, focusOwner)
+	else:
+		add_entry(subInstance)
+
+
+func _on_AddComment_pressed() -> void:
+	var commentInstance = commentEntry.instance()
+	
+	if subList.get_child_count() > 0:
+		var focusOwner = get_focus_owner()
+		add_entry(commentInstance, ADD_OPTION.BELOW_NODE, focusOwner)
+	else:
+		add_entry(commentInstance)
+
+
+# == DUPLICATE ENTRIES ==
+
+func _on_Duplicate_pressed() -> void:
+	if subList.get_child_count() > 0:
+		var focusOwner = get_focus_owner().owner
+		if is_instance_valid(focusOwner):
+			var duplicatedEntry = focusOwner.duplicate()
+			subList.add_child_below_node(focusOwner, duplicatedEntry)
+			duplicatedEntry.subText.caret_position = 0
+			duplicatedEntry.get_focus()

@@ -14,14 +14,15 @@
 bg_color = Color( 0.2, 0.231373, 0.309804, 1 )
 
 [node name="ProjectMap" type="GraphEdit"]
-margin_right = 1170.0
-margin_bottom = 889.0
+margin_right = 1328.0
+margin_bottom = 566.0
 rect_min_size = Vector2( 500, 500 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 1 )
-scroll_offset = Vector2( -150.278, -360 )
-snap_distance = 16
+scroll_offset = Vector2( -303.65, -475.5 )
+snap_distance = 32
+zoom = 0.9
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true,
@@ -29,15 +30,16 @@ __meta__ = {
 }
 
 [node name="GroupNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
-margin_left = 182.278
-margin_top = 360.0
-margin_right = 422.278
-margin_bottom = 696.0
-rect_min_size = Vector2( 240, 336 )
+margin_left = 534.05
+margin_top = 187.5
+margin_right = 726.05
+margin_bottom = 475.5
+rect_min_size = Vector2( 192, 288 )
+rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/commentfocus = ExtResource( 8 )
 custom_styles/comment = ExtResource( 9 )
-offset = Vector2( 32, 0 )
+offset = Vector2( 256, -320 )
 resizable = true
 comment = true
 slot/0/left_enabled = false
@@ -52,16 +54,170 @@ __meta__ = {
 }
 group_name = "Types of entries"
 
-[node name="FileNode6" type="GraphNode" parent="." instance=ExtResource( 4 )]
-margin_left = 214.278
-margin_top = 424.0
-margin_right = 352.278
-margin_bottom = 456.0
+[node name="GroupNode2" type="GraphNode" parent="." instance=ExtResource( 5 )]
+margin_left = 764.45
+margin_top = 187.5
+margin_right = 924.45
+margin_bottom = 443.5
+rect_min_size = Vector2( 160, 256 )
+rect_scale = Vector2( 0.9, 0.9 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 8 )
+custom_styles/comment = ExtResource( 9 )
+offset = Vector2( 512, -320 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Globals"
+
+[node name="FileNode" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 332.45
+margin_top = 245.1
+margin_right = 501.451
+margin_bottom = 307.1
+rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
 custom_styles/selectedframe = ExtResource( 7 )
 custom_constants/port_offset = 0
-offset = Vector2( 64, 64 )
+offset = Vector2( 32, -256 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Interface/MainInterface.tscn"
+icon_class = "Control"
+script_path = "res://Scenes/MainInterface.gd"
+script_name = "MainInterface.gd"
+
+[node name="FileNode5" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 361.25
+margin_top = 302.7
+margin_right = 510.25
+margin_bottom = 334.7
+rect_scale = Vector2( 0.9, 0.9 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 64, -192 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Source/SaveHandler.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode7" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 361.25
+margin_top = 331.5
+margin_right = 514.25
+margin_bottom = 363.5
+rect_scale = Vector2( 0.9, 0.9 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 64, -160 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Source/EntryHandler.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode3" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 534.05
+margin_top = 360.3
+margin_right = 708.051
+margin_bottom = 422.3
+rect_scale = Vector2( 0.9, 0.9 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 256, -128 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Entries/CommentEntry.tscn"
+icon_class = "HBoxContainer"
+script_path = "res://Scenes/CommentEntry.gd"
+script_name = "CommentEntry.gd"
+
+[node name="FileNode2" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 534.05
+margin_top = 302.7
+margin_right = 669.051
+margin_bottom = 364.7
+rect_scale = Vector2( 0.9, 0.9 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 256, -192 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Entries/SubEntry.tscn"
+icon_class = "HBoxContainer"
+script_path = "res://Scenes/SubEntry.gd"
+script_name = "SubEntry.gd"
+
+[node name="FileNode6" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 534.05
+margin_top = 245.1
+margin_right = 672.05
+margin_bottom = 277.1
+rect_scale = Vector2( 0.9, 0.9 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 256, -256 )
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
@@ -76,91 +232,17 @@ path = "res://Source/entry_class.gd"
 resource_type = 2
 icon_class = "Script"
 
-[node name="FileNode2" type="GraphNode" parent="." instance=ExtResource( 4 )]
-margin_left = 214.278
-margin_top = 488.0
-margin_right = 349.279
-margin_bottom = 550.0
-mouse_filter = 1
-custom_styles/frame = ExtResource( 6 )
-custom_styles/selectedframe = ExtResource( 7 )
-custom_constants/port_offset = 0
-offset = Vector2( 64, 128 )
-slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = false
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-path = "res://Scenes/SubEntry.tscn"
-icon_class = "HBoxContainer"
-script_path = "res://Scenes/SubEntry.gd"
-script_name = "SubEntry.gd"
-
-[node name="FileNode3" type="GraphNode" parent="." instance=ExtResource( 4 )]
-margin_left = 214.278
-margin_top = 552.0
-margin_right = 388.279
-margin_bottom = 614.0
-mouse_filter = 1
-custom_styles/frame = ExtResource( 6 )
-custom_styles/selectedframe = ExtResource( 7 )
-custom_constants/port_offset = 0
-offset = Vector2( 64, 192 )
-slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = false
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-path = "res://Scenes/CommentEntry.tscn"
-icon_class = "HBoxContainer"
-script_path = "res://Scenes/CommentEntry.gd"
-script_name = "CommentEntry.gd"
-
-[node name="FileNode" type="GraphNode" parent="." instance=ExtResource( 4 )]
-margin_left = 166.278
-margin_top = 216.0
-margin_right = 335.279
-margin_bottom = 278.0
-mouse_filter = 1
-custom_styles/frame = ExtResource( 6 )
-custom_styles/selectedframe = ExtResource( 7 )
-custom_constants/port_offset = 0
-offset = Vector2( 16, -144 )
-slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = false
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-path = "res://Scenes/MainInterface.tscn"
-icon_class = "Control"
-script_path = "res://Scenes/MainInterface.gd"
-script_name = "MainInterface.gd"
-
 [node name="FileNode4" type="GraphNode" parent="." instance=ExtResource( 4 )]
-margin_left = 486.278
-margin_top = 344.0
-margin_right = 632.278
-margin_bottom = 376.0
+margin_left = 764.45
+margin_top = 245.1
+margin_right = 910.45
+margin_bottom = 277.1
+rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
 custom_styles/selectedframe = ExtResource( 7 )
 custom_constants/port_offset = 0
-offset = Vector2( 336, -16 )
+offset = Vector2( 512, -256 )
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
