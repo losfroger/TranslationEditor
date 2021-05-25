@@ -41,11 +41,10 @@ _global_script_class_icons={
 config/name="TranslationEditor"
 run/main_scene="res://Scenes/Interface/MainInterface.tscn"
 config/icon="res://icon.png"
-config/auto_accept_quit=false
 
 [autoload]
 
-ActorGlobal="*res://Source/actor_global.gd"
+ActorGlobal="*res://Source/ActorGlobal.gd"
 ConfigManager="*res://Source/ConfigManager.gd"
 
 [display]
