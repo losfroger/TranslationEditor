@@ -62,8 +62,7 @@ func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null, foc
 		entryInstance.connect("delete", self, "delete_entry")
 	
 	if focus:
-		pass
-		#entryInstance.get_focus()
+		entryInstance.get_focus()
 
 
 func delete_entry() -> void:
