@@ -20,7 +20,7 @@ margin_top = 8.0
 margin_right = 75.0
 margin_bottom = 22.0
 rect_min_size = Vector2( 75, 0 )
-text = "Comment: "
+text = "Comment:"
 align = 2
 
 [node name="SubText" type="LineEdit" parent="."]

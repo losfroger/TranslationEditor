@@ -4,7 +4,7 @@ extends Control
 onready var fileMenu = $Panel/MarginContainer/VBoxContainer/Menus/FileMenu
 onready var actorMenu = $Panel/MarginContainer/VBoxContainer/Menus/ActorMenu
 # Subs
-onready var subList = $Panel/MarginContainer/VBoxContainer/SubtitleContainer/MarginContainer/SubList
+onready var subList = $Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/SubtitleContainer/MarginContainer/SubList
 onready var EntryHandler = $EntryHandler
 # Saving
 onready var SaveHandler = $SaveHandler

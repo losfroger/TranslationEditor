@@ -1,8 +1,7 @@
 extends Control
 
 # Subs
-onready var subList = $"../Panel/MarginContainer/VBoxContainer/SubtitleContainer/MarginContainer/SubList"
-onready var subContainer = $"../Panel/MarginContainer/VBoxContainer/SubtitleContainer"
+onready var subList = $"../Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/SubtitleContainer/MarginContainer/SubList"
 onready var subEntry = preload("res://Scenes/Entries/SubEntry.tscn")
 onready var commentEntry = preload("res://Scenes/Entries/CommentEntry.tscn")
 onready var tlEntry = preload("res://Scenes/Entries/TranslateEntry.tscn")

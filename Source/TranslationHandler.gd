@@ -1,6 +1,6 @@
 extends Control
 
-onready var langSelect:OptionButton = $"../Panel/MarginContainer/VBoxContainer/SubButtons/TranslateTo"
+onready var langSelect:OptionButton = $"../Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons/TranslateTo"
 # Http
 onready var translationReq = $TranslationRequest
 onready var langReq = $LanguagesRequest
