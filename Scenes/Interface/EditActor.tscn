@@ -1,0 +1,160 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Interface/EditActor.gd" type="Script" id=1]
+
+[node name="EditActor" type="WindowDialog"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.0
+margin_top = -99.0
+margin_right = 157.0
+margin_bottom = 101.0
+popup_exclusive = true
+window_title = "Edit actor"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 303.0
+margin_bottom = 190.0
+custom_constants/separation = 10
+
+[node name="ActorSelector" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+margin_left = 213.0
+margin_right = 293.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+size_flags_horizontal = 8
+text = "Actor"
+align = 2
+
+[node name="InfoPanel" type="Panel" parent="MarginContainer/VBoxContainer"]
+margin_top = 30.0
+margin_right = 293.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/InfoPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/InfoPanel/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 288.0
+margin_bottom = 115.0
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InfoPanel/MarginContainer/VBoxContainer"]
+margin_right = 283.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/InfoPanel/MarginContainer/VBoxContainer/NameContainer"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 60, 0 )
+text = "Name:"
+
+[node name="Name" type="LineEdit" parent="MarginContainer/VBoxContainer/InfoPanel/MarginContainer/VBoxContainer/NameContainer"]
+margin_left = 64.0
+margin_right = 283.0
+margin_bottom = 24.0
+hint_tooltip = "Actor name
+(Max 7 characters)"
+size_flags_horizontal = 3
+max_length = 7
+placeholder_text = "Actor"
+
+[node name="ColorContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InfoPanel/MarginContainer/VBoxContainer"]
+margin_top = 29.0
+margin_right = 283.0
+margin_bottom = 49.0
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/InfoPanel/MarginContainer/VBoxContainer/ColorContainer"]
+margin_top = 3.0
+margin_right = 60.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 60, 0 )
+text = "Color:"
+
+[node name="Color" type="ColorPickerButton" parent="MarginContainer/VBoxContainer/InfoPanel/MarginContainer/VBoxContainer/ColorContainer"]
+margin_left = 64.0
+margin_right = 283.0
+margin_bottom = 20.0
+hint_tooltip = "Color for the actor
+(Not yet implemented)"
+size_flags_horizontal = 3
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+
+[node name="Instances and delete" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InfoPanel/MarginContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 283.0
+margin_bottom = 110.0
+size_flags_vertical = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/InfoPanel/MarginContainer/VBoxContainer/Instances and delete"]
+margin_top = 3.0
+margin_right = 149.0
+margin_bottom = 17.0
+size_flags_horizontal = 0
+size_flags_vertical = 6
+text = "Number of instances: 0"
+
+[node name="Accept2" type="Button" parent="MarginContainer/VBoxContainer/InfoPanel/MarginContainer/VBoxContainer/Instances and delete"]
+margin_left = 228.0
+margin_right = 283.0
+margin_bottom = 20.0
+size_flags_horizontal = 10
+text = "Delete"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 160.0
+margin_right = 293.0
+margin_bottom = 180.0
+
+[node name="Accept" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 144.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Accept"
+
+[node name="Accept3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 148.0
+margin_right = 293.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Cancel"
