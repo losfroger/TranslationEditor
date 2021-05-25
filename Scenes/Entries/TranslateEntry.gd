@@ -25,3 +25,8 @@ func _on_SubText_text_changed(new_text: String) -> void:
 
 func get_text():
 	return actorButton.get_item_text(actorButton.get_selected_id()) + ": " + tlText.text
+
+
+func reset_caret() -> void:
+	subText.caret_position = 0
+	tlText.caret_position = 0

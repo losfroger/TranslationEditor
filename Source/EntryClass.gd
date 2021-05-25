@@ -29,3 +29,7 @@ func change_actor(change) -> void:
 func _on_DeleteBtn_pressed() -> void:
 	subText.grab_focus()
 	emit_signal("delete")
+
+
+func reset_caret() -> void:
+	subText.caret_position = 0

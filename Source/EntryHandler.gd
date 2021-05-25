@@ -119,5 +119,5 @@ func _on_Duplicate_pressed() -> void:
 		if is_instance_valid(focusOwner):
 			var duplicatedEntry = focusOwner.duplicate()
 			subList.add_child_below_node(focusOwner, duplicatedEntry)
-			duplicatedEntry.subText.caret_position = 0
+			duplicatedEntry.reset_caret()
 			duplicatedEntry.get_focus()
