@@ -25,9 +25,14 @@ func change_actor(change) -> void:
 				)
 
 
-func load_entry(actor: String, text: String):
+func load_entry(actor: String, text: String) -> bool:
 	subText.text = text.right(1)
-	actorButton.select(ActorGlobal.actorList.find(actor))
+	var id = ActorGlobal.actorList.find(actor)
+	if id > -1:
+		actorButton.select(ActorGlobal.actorList.find(actor))
+		return true
+	DebugGlobal.message("Actor not found while loading entry")
+	return false
 
 
 func get_text():

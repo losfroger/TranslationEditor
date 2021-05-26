@@ -23,7 +23,7 @@ func move_entry(option = MOVE.UP):
 	if is_instance_valid(get_focus_owner()):
 		var focusOwner = get_focus_owner().owner
 		var index = get_focus_owner().owner.get_index()
-		
+		DebugGlobal.message("Moving entry: " + focusOwner.to_string())
 		match option:
 			MOVE.UP:
 				index = max(0, index - 1)
@@ -48,12 +48,14 @@ func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null, foc
 	var created = false
 	match option:
 		ADD_OPTION.NORMAL:
+			DebugGlobal.message("Adding entry: " + entryInstance.to_string())
 			subList.add_child(entryInstance)
 			created = true
 		
 		ADD_OPTION.BELOW_NODE:
 			if is_instance_valid(focusOwner):
 				if focusOwner.owner.is_in_group("sub_entry"):
+					DebugGlobal.message("Adding entry below: " + entryInstance.to_string())
 					subList.add_child_below_node(focusOwner.owner, entryInstance)
 					created = true
 	
@@ -66,6 +68,7 @@ func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null, foc
 
 func delete_entry() -> void:
 	var focusOwner = get_focus_owner()
+	DebugGlobal.message("Deliting entry: " + focusOwner.owner.to_string())
 	if is_instance_valid(focusOwner):
 		if focusOwner.owner.is_in_group("sub_entry"):
 			var index = focusOwner.owner.get_index() + 1
@@ -115,6 +118,7 @@ func _on_AddTL_pressed() -> void:
 func _on_Duplicate_pressed() -> void:
 	if subList.get_child_count() > 0:
 		var focusOwner = get_focus_owner().owner
+		DebugGlobal.message("Dupe entry: " + focusOwner.to_string())
 		if is_instance_valid(focusOwner):
 			var duplicatedEntry = focusOwner.duplicate()
 			subList.add_child_below_node(focusOwner, duplicatedEntry)

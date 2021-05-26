@@ -44,8 +44,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-ActorGlobal="*res://Source/ActorGlobal.gd"
+DebugGlobal="*res://Source/DebugGlobal.gd"
 ConfigManager="*res://Source/ConfigManager.gd"
+ActorGlobal="*res://Source/ActorGlobal.gd"
 
 [display]
 

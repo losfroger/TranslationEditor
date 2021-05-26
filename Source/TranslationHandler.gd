@@ -45,10 +45,12 @@ func _on_Translate_pressed() -> void:
 
 func _make_post_request(url: String, data, headers: Array, use_ssl: bool) -> void:
 	var query = JSON.print(data)
+	DebugGlobal.message("Making post request")
 	translationReq.request(url, headers, use_ssl, HTTPClient.METHOD_POST, query)
 
 # TODO: Show the errors in a popup window
 func _on_LanguagesRequest_request_completed(_result: int, response_code: int, _headers: PoolStringArray, body: PoolByteArray) -> void:
+	DebugGlobal.message("Got language entries")
 	if response_code == HTTPClient.RESPONSE_OK:
 		languages = parse_json(body.get_string_from_utf8())
 		for language in languages.translation:
@@ -58,6 +60,7 @@ func _on_LanguagesRequest_request_completed(_result: int, response_code: int, _h
 
 
 func _on_TranslationRequest_request_completed(_result: int, response_code: int, _headers: PoolStringArray, body: PoolByteArray) -> void:
+	DebugGlobal.message("TL request completed")
 	if response_code == HTTPClient.RESPONSE_OK:
 		var translation = parse_json(body.get_string_from_utf8())
 		print(translation)
@@ -65,4 +68,4 @@ func _on_TranslationRequest_request_completed(_result: int, response_code: int, 
 			(tlEntries[i] as EntryTranslate).tlText.text = translation[i]["translations"][0]["text"]
 			(tlEntries[i] as EntryTranslate).translated = true
 	else:
-		print("Error:\n", body.get_string_from_utf8())
+		DebugGlobal.message("Error: " + body.get_string_from_utf8())

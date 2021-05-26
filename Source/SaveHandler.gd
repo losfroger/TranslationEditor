@@ -9,7 +9,7 @@ onready var EntryHandler = $"../EntryHandler"
 
 # Save File
 func _on_SaveSubFileDialog_file_selected(path: String) -> void:
-	print("Saving: " + path)
+	DebugGlobal.message("Save: " + path)
 	
 	var file = File.new()
 	file.open(path, File.WRITE)
@@ -26,7 +26,7 @@ func _on_SaveSubFileDialog_file_selected(path: String) -> void:
 
 # Load file
 func _on_LoadSubFileDialog_file_selected(path: String) -> void:
-	print("Loading: " + path)
+	DebugGlobal.message("Load: " + path)
 	
 	var file = File.new()
 	file.open(path, File.READ)
@@ -35,26 +35,32 @@ func _on_LoadSubFileDialog_file_selected(path: String) -> void:
 	get_tree().call_group("sub_entry", "queue_free")
 	
 	# Process actors
-	ActorGlobal.load_actors(file.get_line())
-	
-	while(not file.eof_reached()):
-		var subEntryText = file.get_line()
-		
-		if not subEntryText.empty():
-			# Check if it's a comment or a translation
-			if "#" in subEntryText:
-				var entryLoad = subEntryText.split("#")
-				var comInstance = EntryHandler.commentEntry.instance()
-				EntryHandler.add_entry(comInstance, EntryHandler.ADD_OPTION.NORMAL, null, false)
-				comInstance.load_entry(entryLoad[1])
-			else:
-				var entryLoad  = subEntryText.split(":")
+	var counter = 2
+	if ActorGlobal.load_actors(file.get_line()):
+		while(not file.eof_reached()):
+			var subEntryText = file.get_line()
+			
+			if not subEntryText.empty():
+				# Check if it's a comment or a translation
+				if "#" in subEntryText:
+					var entryLoad = subEntryText.split("#")
+					var comInstance = EntryHandler.commentEntry.instance()
+					EntryHandler.add_entry(comInstance, EntryHandler.ADD_OPTION.NORMAL, null, false)
+					comInstance.load_entry(entryLoad[1])
+				else:
+					var entryLoad  = subEntryText.split(":")
+					
+					var subInstance = EntryHandler.subEntry.instance()
+					EntryHandler.add_entry(subInstance, EntryHandler.ADD_OPTION.NORMAL, null, false)
+					if subInstance.load_entry(entryLoad[0], entryLoad[1]) == false:
+						DebugGlobal.message(
+							"Error line " + String(counter) 
+							+ " (actor not found): " + subEntryText)
 				
-				var subInstance = EntryHandler.subEntry.instance()
-				EntryHandler.add_entry(subInstance, EntryHandler.ADD_OPTION.NORMAL, null, false)
-				subInstance.load_entry(entryLoad[0], entryLoad[1])
-	
-	EntryHandler.subList.get_child(EntryHandler.subList.get_child_count() - 1).get_focus()
+				counter += 1
+		
+		EntryHandler.subList.get_child(EntryHandler.subList.get_child_count() - 1).get_focus()
+		DebugGlobal.message("Loaded: " + path)
 	
 	file.close()
 
