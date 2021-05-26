@@ -48,6 +48,7 @@ func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		if (subList.get_child_count() > 0 
 			and ConfigManager.get_setting("config", "dialog_quit")):
+			DebugGlobal.message("Show quit dialog")
 			quitDialog.call_deferred("show")
 		else:
 			get_tree().quit()

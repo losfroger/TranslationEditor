@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Interface/Debug.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 12
+size = 10
 use_mipmaps = true
 font_data = ExtResource( 1 )
 
@@ -12,10 +12,16 @@ font_data = ExtResource( 1 )
 margin_top = 727.0
 margin_right = 670.0
 margin_bottom = 750.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
-text = "Debug:"
 autowrap = true
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
