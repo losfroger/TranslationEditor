@@ -13,7 +13,7 @@ var _settings = {
 	"config" : {
 		"default_directory": OS.get_system_dir(OS.SYSTEM_DIR_MOVIES),
 		"window_size": Vector2(680, 760),
-		"dialog_quit": false,
+		"dialog_quit": true,
 	}
 }
 var _default_settings = _settings.duplicate(true)
