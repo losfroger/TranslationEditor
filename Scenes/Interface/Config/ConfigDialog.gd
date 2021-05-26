@@ -64,6 +64,7 @@ func _on_Accept_pressed() -> void:
 	ConfigManager.set_setting("api", "region", apiRegion.text)
 	
 	ConfigManager.save_settings_file()
+	ConfigManager.apply_settings()
 	ConfigManager.changed_settings()
 	hide()
 
