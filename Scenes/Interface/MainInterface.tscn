@@ -262,6 +262,9 @@ margin_left = 355.0
 margin_right = 380.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 25, 25 )
+hint_tooltip = "(Alt+Backspace)
+Delete entry"
+focus_mode = 0
 texture_normal = ExtResource( 12 )
 expand = true
 stretch_mode = 5
@@ -295,7 +298,6 @@ margin_bottom = 27.0
 rect_min_size = Vector2( 70, 0 )
 hint_tooltip = "Select to which language it'll be translating to"
 focus_mode = 0
-text = "es"
 clip_text = true
 
 [node name="SubtitleContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer"]
@@ -327,6 +329,7 @@ size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="PopupWindows" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -425,7 +428,6 @@ visible = false
 [node name="AddActor" parent="PopupWindows" instance=ExtResource( 10 )]
 
 [node name="ConfigDialog" parent="PopupWindows" instance=ExtResource( 13 )]
-visible = false
 
 [connection signal="request_completed" from="TranslationHandler/LanguagesRequest" to="TranslationHandler" method="_on_LanguagesRequest_request_completed"]
 [connection signal="request_completed" from="TranslationHandler/TranslationRequest" to="TranslationHandler" method="_on_TranslationRequest_request_completed"]
@@ -436,6 +438,7 @@ visible = false
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons/ArrowDown" to="EntryHandler" method="_on_ArrowDown_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons/ArrowUp" to="EntryHandler" method="_on_ArrowUp_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons/Duplicate" to="EntryHandler" method="_on_Duplicate_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons/Delete" to="EntryHandler" method="_on_Delete_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons/Translate" to="TranslationHandler" method="_on_Translate_pressed"]
 [connection signal="file_selected" from="PopupWindows/SaveSubFileDialog" to="SaveHandler" method="_on_SaveSubFileDialog_file_selected"]
 [connection signal="file_selected" from="PopupWindows/LoadSubFileDialog" to="SaveHandler" method="_on_LoadSubFileDialog_file_selected"]

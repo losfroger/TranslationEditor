@@ -120,3 +120,7 @@ func _on_Duplicate_pressed() -> void:
 			subList.add_child_below_node(focusOwner, duplicatedEntry)
 			duplicatedEntry.reset_caret()
 			duplicatedEntry.get_focus()
+
+
+func _on_Delete_pressed() -> void:
+	delete_entry()
