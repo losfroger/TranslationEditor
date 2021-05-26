@@ -30,10 +30,18 @@ func _ready() -> void:
 	actorMenu.get_popup().connect("id_pressed", self, "_on_ActorMenu_id_pressed")
 	quitDialog.saveDialog = saveSubDialog
 	
+	load_config()
+	
+	ConfigManager.connect("changed_settings", self, "load_config")
+	
 	for popup in popupContainer.get_children():
 		(popup as Popup).connect("popup_hide", self, "_on_popup_hide")
 		(popup as Popup).connect("about_to_show", self, "_on_popup_show")
 
+
+func load_config() -> void:
+	saveSubDialog.current_dir = ConfigManager.get_setting("config", "default_directory")
+	loadSubDialog.current_dir = ConfigManager.get_setting("config", "default_directory")
 
 # Handle quit request
 func _notification(what):

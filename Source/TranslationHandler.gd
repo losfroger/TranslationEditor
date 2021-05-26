@@ -11,6 +11,11 @@ var tlEntries: Array
 
 func _ready() -> void:
 	langReq.request("https://api.cognitive.microsofttranslator.com/languages?api-version=3.0")
+	load_config()
+	ConfigManager.connect("changed_settings", self, "load_config")
+
+
+func load_config() -> void:
 	headers = [
 		"Ocp-Apim-Subscription-Key: " + ConfigManager.get_setting("api", "key"),
 		"Ocp-Apim-Subscription-Region: " + ConfigManager.get_setting("api", "region"),
