@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Icons/MoveUp.svg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Interface/MainInterface.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/Interface/AddActor.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Theme/Theme.tres" type="Theme" id=11]
 [ext_resource path="res://Assets/Icons/Remove.svg" type="Texture" id=12]
+[ext_resource path="res://Scenes/Interface/Config/ConfigDialog.tscn" type="PackedScene" id=13]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.12549, 0.145098, 0.192157, 1 )
@@ -133,6 +134,15 @@ margin_right = 98.0
 margin_bottom = 27.0
 text = "Actors"
 items = [ "Add actor", null, 0, false, false, 0, 0, null, "", false, "Edit actors", null, 0, false, false, 1, 0, null, "", false, "", null, 0, false, true, 999, 0, null, "", true, "Load actors from file... ", null, 0, false, false, 2, 0, null, "", false ]
+
+[node name="Settings" type="Button" parent="Panel/MarginContainer/VBoxContainer/Menus"]
+margin_left = 102.0
+margin_right = 172.0
+margin_bottom = 27.0
+focus_mode = 0
+size_flags_horizontal = 0
+text = "Settings"
+flat = true
 
 [node name="MainInterfacePanel" type="Panel" parent="Panel/MarginContainer/VBoxContainer"]
 margin_top = 36.0
@@ -317,7 +327,6 @@ size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="PopupWindows" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -343,6 +352,7 @@ show_hidden_files = true
 current_dir = "/Losfroger/Documentos/Godot/SubtitleEditor"
 current_path = "/Losfroger/Documentos/Godot/SubtitleEditor/"
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -366,6 +376,7 @@ show_hidden_files = true
 current_dir = "/Losfroger/Documentos/Godot/SubtitleEditor"
 current_path = "/Losfroger/Documentos/Godot/SubtitleEditor/"
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -385,6 +396,7 @@ window_title = "Error"
 dialog_text = "Test"
 dialog_autowrap = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -403,13 +415,21 @@ dialog_text = "This action will delete any unsaved changes you have.
 
 Do you want to continue?"
 dialog_autowrap = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="QuitDialog" parent="PopupWindows" instance=ExtResource( 4 )]
+visible = false
 
 [node name="AddActor" parent="PopupWindows" instance=ExtResource( 10 )]
 
+[node name="ConfigDialog" parent="PopupWindows" instance=ExtResource( 13 )]
+visible = false
+
 [connection signal="request_completed" from="TranslationHandler/LanguagesRequest" to="TranslationHandler" method="_on_LanguagesRequest_request_completed"]
 [connection signal="request_completed" from="TranslationHandler/TranslationRequest" to="TranslationHandler" method="_on_TranslationRequest_request_completed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Menus/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons/AddEntry" to="EntryHandler" method="_on_AddEntry_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons/AddTL" to="EntryHandler" method="_on_AddTL_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MainInterfacePanel/MarginContainer/VBoxContainer/ToolBarContainer/SubButtons/AddComment" to="EntryHandler" method="_on_AddComment_pressed"]

@@ -1,0 +1,268 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Interface/Config/ConfigDialog.gd" type="Script" id=1]
+
+[node name="ConfigDialog" type="WindowDialog"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -188.0
+margin_top = -192.0
+margin_right = 188.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 70, 0 )
+popup_exclusive = true
+window_title = "Configuration"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainContainer" type="VBoxContainer" parent="Margin"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 366.0
+margin_bottom = 372.0
+custom_constants/separation = 10
+
+[node name="Tabs" type="TabContainer" parent="Margin/MainContainer"]
+margin_right = 356.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/side_margin = 20
+tab_align = 0
+
+[node name="General" type="ScrollContainer" parent="Margin/MainContainer/Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBox" type="VBoxContainer" parent="Margin/MainContainer/Tabs/General"]
+margin_right = 348.0
+margin_bottom = 296.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Margin/MainContainer/Tabs/General/VBox"]
+margin_right = 348.0
+margin_bottom = 14.0
+text = "Default directory:"
+
+[node name="Directory" type="HBoxContainer" parent="Margin/MainContainer/Tabs/General/VBox"]
+margin_top = 24.0
+margin_right = 348.0
+margin_bottom = 48.0
+
+[node name="DirectoryPath" type="LineEdit" parent="Margin/MainContainer/Tabs/General/VBox/Directory"]
+margin_right = 266.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="DirectoryButton" type="Button" parent="Margin/MainContainer/Tabs/General/VBox/Directory"]
+margin_left = 270.0
+margin_right = 348.0
+margin_bottom = 24.0
+text = "Examine..."
+
+[node name="HSeparator" type="HSeparator" parent="Margin/MainContainer/Tabs/General/VBox"]
+margin_top = 58.0
+margin_right = 348.0
+margin_bottom = 62.0
+
+[node name="Label2" type="Label" parent="Margin/MainContainer/Tabs/General/VBox"]
+margin_top = 72.0
+margin_right = 348.0
+margin_bottom = 86.0
+text = "Default window size:"
+
+[node name="WindowSize" type="HBoxContainer" parent="Margin/MainContainer/Tabs/General/VBox"]
+margin_top = 96.0
+margin_right = 348.0
+margin_bottom = 138.0
+
+[node name="Width" type="VBoxContainer" parent="Margin/MainContainer/Tabs/General/VBox/WindowSize"]
+margin_right = 112.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Margin/MainContainer/Tabs/General/VBox/WindowSize/Width"]
+margin_right = 112.0
+margin_bottom = 14.0
+text = "Width"
+
+[node name="WidthBox" type="SpinBox" parent="Margin/MainContainer/Tabs/General/VBox/WindowSize/Width"]
+margin_top = 18.0
+margin_right = 112.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+min_value = 630.0
+max_value = 5000.0
+value = 680.0
+allow_greater = true
+
+[node name="Height" type="VBoxContainer" parent="Margin/MainContainer/Tabs/General/VBox/WindowSize"]
+margin_left = 116.0
+margin_right = 228.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Margin/MainContainer/Tabs/General/VBox/WindowSize/Height"]
+margin_right = 112.0
+margin_bottom = 14.0
+text = "Height"
+
+[node name="HeightBox" type="SpinBox" parent="Margin/MainContainer/Tabs/General/VBox/WindowSize/Height"]
+margin_top = 18.0
+margin_right = 112.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+min_value = 340.0
+max_value = 5000.0
+value = 760.0
+allow_greater = true
+
+[node name="WindowSize" type="Button" parent="Margin/MainContainer/Tabs/General/VBox/WindowSize"]
+margin_left = 232.0
+margin_top = 18.0
+margin_right = 348.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_vertical = 8
+text = "Get Current Size"
+
+[node name="HSeparator2" type="HSeparator" parent="Margin/MainContainer/Tabs/General/VBox"]
+margin_top = 148.0
+margin_right = 348.0
+margin_bottom = 152.0
+
+[node name="AcceptQuit" type="CheckBox" parent="Margin/MainContainer/Tabs/General/VBox"]
+margin_top = 162.0
+margin_right = 348.0
+margin_bottom = 186.0
+text = "Show dialog on quit"
+
+[node name="Reset" type="Button" parent="Margin/MainContainer/Tabs/General/VBox"]
+margin_left = 111.0
+margin_top = 276.0
+margin_right = 236.0
+margin_bottom = 296.0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Revert to defaults"
+
+[node name="Api" type="ScrollContainer" parent="Margin/MainContainer/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBox" type="VBoxContainer" parent="Margin/MainContainer/Tabs/Api"]
+margin_right = 348.0
+margin_bottom = 296.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Margin/MainContainer/Tabs/Api/VBox"]
+margin_right = 348.0
+margin_bottom = 14.0
+text = "Api key:"
+
+[node name="ApiKey" type="LineEdit" parent="Margin/MainContainer/Tabs/Api/VBox"]
+margin_top = 18.0
+margin_right = 348.0
+margin_bottom = 42.0
+
+[node name="Label2" type="Label" parent="Margin/MainContainer/Tabs/Api/VBox"]
+margin_top = 46.0
+margin_right = 348.0
+margin_bottom = 60.0
+text = "Region:"
+
+[node name="ApiRegion" type="LineEdit" parent="Margin/MainContainer/Tabs/Api/VBox"]
+margin_top = 64.0
+margin_right = 348.0
+margin_bottom = 88.0
+
+[node name="DialogButtons" type="HBoxContainer" parent="Margin/MainContainer"]
+margin_left = 242.0
+margin_top = 342.0
+margin_right = 356.0
+margin_bottom = 362.0
+size_flags_horizontal = 12
+
+[node name="Accept" type="Button" parent="Margin/MainContainer/DialogButtons"]
+margin_right = 56.0
+margin_bottom = 20.0
+text = "Accept"
+
+[node name="Cancel" type="Button" parent="Margin/MainContainer/DialogButtons"]
+margin_left = 60.0
+margin_right = 114.0
+margin_bottom = 20.0
+text = "Cancel"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -213.0
+margin_right = 255.0
+margin_bottom = 212.0
+popup_exclusive = true
+window_title = "Open a Directory"
+resizable = true
+dialog_text = "Choose default folder to open files"
+mode = 2
+access = 2
+show_hidden_files = true
+current_dir = "/Losfroger/Documentos/Godot/SubtitleEditor"
+current_path = "/Losfroger/Documentos/Godot/SubtitleEditor/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AcceptDialog" type="ConfirmationDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -113.0
+margin_top = -57.0
+margin_right = 135.0
+margin_bottom = 59.0
+dialog_text = "Are you sure that you want to reset the settings to the default values?"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Margin/MainContainer/Tabs/General/VBox/Directory/DirectoryButton" to="." method="_on_DirectoryButton_pressed"]
+[connection signal="pressed" from="Margin/MainContainer/Tabs/General/VBox/WindowSize/WindowSize" to="." method="_on_WindowSize_pressed"]
+[connection signal="pressed" from="Margin/MainContainer/DialogButtons/Accept" to="." method="_on_Accept_pressed"]
+[connection signal="pressed" from="Margin/MainContainer/DialogButtons/Cancel" to="." method="_on_Cancel_pressed"]
+[connection signal="dir_selected" from="FileDialog" to="." method="_on_FileDialog_dir_selected"]
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]

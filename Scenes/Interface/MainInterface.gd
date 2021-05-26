@@ -20,12 +20,9 @@ onready var quitDialog = $PopupWindows/QuitDialog
 
 onready var addActorDialog = $PopupWindows/AddActor
 
+onready var settingDialog = $PopupWindows/ConfigDialog
+
 # TODO: Add functionality to the actor menu
-
-func _enter_tree() -> void:
-	ProjectSettings.set_setting("display/window/size/always_on_top", true)
-	print(ProjectSettings.get_setting("display/window/size/always_on_top"))
-
 
 func _ready() -> void:
 	#get_tree().call_group("sub_entry", "queue_free")
@@ -41,7 +38,8 @@ func _ready() -> void:
 # Handle quit request
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		if subList.get_child_count() > 0:
+		if (subList.get_child_count() > 0 
+			and ConfigManager.get_setting("config", "dialog_quit")):
 			quitDialog.call_deferred("show")
 		else:
 			get_tree().quit()
@@ -110,3 +108,7 @@ func _on_popup_show() -> void:
 
 func _on_popup_hide() -> void:
 	self.set_process_input(true)
+
+
+func _on_Settings_pressed() -> void:
+	settingDialog.popup_centered()
