@@ -123,6 +123,7 @@ func _on_Duplicate_pressed() -> void:
 			var duplicatedEntry = focusOwner.duplicate()
 			subList.add_child_below_node(focusOwner, duplicatedEntry)
 			duplicatedEntry.reset_caret()
+			duplicatedEntry.duplicated()
 			duplicatedEntry.get_focus()
 
 

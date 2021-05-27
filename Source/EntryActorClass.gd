@@ -25,6 +25,12 @@ func change_actor(change) -> void:
 				)
 
 
+func duplicated() -> void:
+	actorButton.clear()
+	for actor in ActorGlobal.actorList:
+		actorButton.add_item(actor)
+
+
 func load_entry(actor: String, text: String) -> bool:
 	subText.text = text.right(1)
 	var id = ActorGlobal.actorList.find(actor)

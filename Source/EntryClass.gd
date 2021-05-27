@@ -26,6 +26,10 @@ func change_actor(change) -> void:
 	pass
 
 
+func duplicated() -> void:
+	pass
+
+
 func _on_DeleteBtn_pressed() -> void:
 	subText.grab_focus()
 	emit_signal("delete")
