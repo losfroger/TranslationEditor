@@ -55,6 +55,9 @@ func _on_LanguagesRequest_request_completed(_result: int, response_code: int, _h
 		languages = parse_json(body.get_string_from_utf8())
 		for language in languages.translation:
 			langSelect.add_item(language)
+			ConfigManager.loaded_languages.append(language)
+		ConfigManager.emit_signal("loaded_languages")
+		langSelect.select(ConfigManager.get_setting("config", "default_tl_lang"))
 	else:
 		print("Error:\n", body.get_string_from_utf8())
 

@@ -2,6 +2,7 @@ extends Node
 
 signal loaded_settings()
 signal changed_settings()
+signal loaded_languages()
 const SAVE_PATH = "res://config.cfg"
 
 var _config_file:ConfigFile = ConfigFile.new()
@@ -14,6 +15,7 @@ var _settings = {
 		"default_directory": OS.get_system_dir(OS.SYSTEM_DIR_MOVIES),
 		"window_size": Vector2(680, 760),
 		"dialog_quit": true,
+		"default_tl_lang": 0,
 	},
 	"debug" : {
 		"show_debug": false,
@@ -21,7 +23,7 @@ var _settings = {
 	}
 }
 var _default_settings = _settings.duplicate(true)
-
+var loaded_languages:Array = []
 
 func _ready() -> void:
 	OS.min_window_size = Vector2(630, 340)

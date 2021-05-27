@@ -9,6 +9,9 @@ onready var winHeight = $Margin/MainContainer/Tabs/General/VBox/WindowSize/Heigh
 # Api
 onready var apiKey = $Margin/MainContainer/Tabs/Api/VBox/ApiKey
 onready var apiRegion = $Margin/MainContainer/Tabs/Api/VBox/ApiRegion
+# Language
+onready var langContainer = $Margin/MainContainer/Tabs/General/VBox/langTL
+onready var tlLang = $Margin/MainContainer/Tabs/General/VBox/langTL/tlLang
 
 onready var resetBtn = $Margin/MainContainer/Tabs/General/VBox/Reset
 
@@ -19,6 +22,7 @@ func _ready() -> void:
 	resetBtn.connect("pressed", acceptDialog, "popup_centered")
 	
 	ConfigManager.connect("changed_settings", self, "load_settings")
+	ConfigManager.connect("loaded_languages", self, "load_language")
 	load_settings()
 
 func load_settings() -> void:
@@ -34,6 +38,12 @@ func load_settings() -> void:
 	
 	fileDialog.current_dir = ConfigManager.get_setting("config", "default_directory")
 
+
+func load_language() -> void:
+	langContainer.visible = true
+	for language in ConfigManager.loaded_languages:
+		tlLang.add_item(language)
+	tlLang.select(ConfigManager.get_setting("config", "default_tl_lang"))
 
 func _on_DirectoryButton_pressed() -> void:
 	fileDialog.popup()
@@ -62,6 +72,9 @@ func _on_Accept_pressed() -> void:
 	# Api
 	ConfigManager.set_setting("api", "key", apiKey.text)
 	ConfigManager.set_setting("api", "region", apiRegion.text)
+	# :anguage
+	if langContainer.visible == true:
+		ConfigManager.set_setting("config", "default_tl_lang", tlLang.selected)
 	
 	ConfigManager.save_settings_file()
 	ConfigManager.apply_settings()
