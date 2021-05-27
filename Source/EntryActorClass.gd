@@ -3,10 +3,14 @@ class_name EntryActor
 
 onready var actorButton: OptionButton = $ActorButton
 
+
 func _ready() -> void:
+	actorButton.connect("item_selected", self, "select_changed")
+
+
+func init() -> void:
 	for actor in ActorGlobal.actorList:
 		actorButton.add_item(actor)
-	actorButton.connect("item_selected", self, "select_changed")
 	add_to_group("_actor_" + actorButton.get_item_text(0))
 
 
@@ -36,12 +40,6 @@ func change_actor(change) -> void:
 			
 			actorButton.select(id)
 			select_changed(id)
-
-
-func duplicated() -> void:
-	actorButton.clear()
-	for actor in ActorGlobal.actorList:
-		actorButton.add_item(actor)
 
 
 func load_entry(actor: String, text: String) -> bool:

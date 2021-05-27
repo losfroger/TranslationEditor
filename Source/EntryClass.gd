@@ -11,6 +11,9 @@ enum CHANGE_ACTOR {
 }
 
 
+func init() -> void:
+	pass
+
 # TODO: Add ability to change an actors color
 func get_text() -> void:
 	pass
@@ -23,10 +26,6 @@ func get_focus() -> void:
 
 
 func change_actor(change) -> void:
-	pass
-
-
-func duplicated() -> void:
 	pass
 
 

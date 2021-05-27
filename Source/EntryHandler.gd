@@ -61,6 +61,7 @@ func add_entry(entryInstance, option = ADD_OPTION.NORMAL, focusOwner = null, foc
 	
 	if created:
 		entryInstance.connect("delete", self, "delete_entry")
+		entryInstance.init()
 	
 	if focus:
 		entryInstance.get_focus()
@@ -123,7 +124,6 @@ func _on_Duplicate_pressed() -> void:
 			var duplicatedEntry = focusOwner.duplicate()
 			subList.add_child_below_node(focusOwner, duplicatedEntry)
 			duplicatedEntry.reset_caret()
-			duplicatedEntry.duplicated()
 			duplicatedEntry.get_focus()
 
 
