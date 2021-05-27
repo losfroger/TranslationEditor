@@ -26,7 +26,7 @@ var _default_settings = _settings.duplicate(true)
 var loaded_languages:Array = []
 
 func _ready() -> void:
-	OS.min_window_size = Vector2(630, 340)
+	OS.min_window_size = Vector2(540, 300)
 	load_settings_file()
 	apply_settings()
 	

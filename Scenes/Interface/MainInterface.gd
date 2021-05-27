@@ -123,4 +123,4 @@ func _on_popup_hide() -> void:
 
 
 func _on_Settings_pressed() -> void:
-	settingDialog.popup_centered()
+	settingDialog.popup_centered_minsize()
