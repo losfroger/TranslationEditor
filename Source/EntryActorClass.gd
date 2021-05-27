@@ -6,23 +6,36 @@ onready var actorButton: OptionButton = $ActorButton
 func _ready() -> void:
 	for actor in ActorGlobal.actorList:
 		actorButton.add_item(actor)
+	actorButton.connect("item_selected", self, "select_changed")
+	add_to_group("_actor_" + actorButton.get_item_text(0))
 
+
+func select_changed(index: int):
+	remove_from_group(get_groups()[-1])
+	add_to_group("_actor_" + actorButton.get_item_text(index))
+
+
+func update_group(newName: String):
+	remove_from_group(get_groups()[-1])
+	add_to_group("_actor_" + newName)
 
 func change_actor(change) -> void:
 	match change:
 		CHANGE_ACTOR.NEXT:
-			actorButton.select(
-				actorButton.selected + 1 
+			var id = (actorButton.selected + 1 
 				if actorButton.selected + 1 < actorButton.get_item_count()
-				else actorButton.selected
-				)
+				else actorButton.selected)
+			
+			actorButton.select(id)
+			select_changed(id)
 		
 		CHANGE_ACTOR.PREVIOUS:
-			actorButton.select(
-				actorButton.selected - 1 
+			var id = (actorButton.selected - 1 
 				if actorButton.selected - 1 >= 0
-				else actorButton.selected
-				)
+				else actorButton.selected)
+			
+			actorButton.select(id)
+			select_changed(id)
 
 
 func duplicated() -> void:
@@ -35,7 +48,8 @@ func load_entry(actor: String, text: String) -> bool:
 	subText.text = text.right(1)
 	var id = ActorGlobal.actorList.find(actor)
 	if id > -1:
-		actorButton.select(ActorGlobal.actorList.find(actor))
+		actorButton.select(id)
+		select_changed(id)
 		return true
 	DebugGlobal.message("Actor not found while loading entry")
 	return false
@@ -53,3 +67,4 @@ func update_actor_list():
 		actorButton.add_item(actor)
 	
 	actorButton.selected = auxSelect
+	select_changed(auxSelect)

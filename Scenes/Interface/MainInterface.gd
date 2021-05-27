@@ -19,6 +19,7 @@ onready var errorDialog = $PopupWindows/ErrorDialog
 onready var quitDialog = $PopupWindows/QuitDialog
 
 onready var addActorDialog = $PopupWindows/AddActor
+onready var editActorDialog = $PopupWindows/EditActor
 
 onready var settingDialog = $PopupWindows/ConfigDialog
 
@@ -109,6 +110,8 @@ func _on_ActorMenu_id_pressed(id: int) -> void:
 	match id:
 		0: # Add
 			addActorDialog.popup()
+		1: # Edit
+			editActorDialog.popup()
 
 
 # Deal with pop ups

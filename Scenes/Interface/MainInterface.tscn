@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Icons/MoveUp.svg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Interface/MainInterface.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/Icons/Remove.svg" type="Texture" id=12]
 [ext_resource path="res://Scenes/Interface/Config/ConfigDialog.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Interface/Debug.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Interface/EditActor.tscn" type="PackedScene" id=15]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.12549, 0.145098, 0.192157, 1 )
@@ -336,7 +337,6 @@ size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="PopupWindows" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -434,7 +434,11 @@ visible = false
 
 [node name="AddActor" parent="PopupWindows" instance=ExtResource( 10 )]
 
+[node name="EditActor" parent="PopupWindows" instance=ExtResource( 15 )]
+visible = false
+
 [node name="ConfigDialog" parent="PopupWindows" instance=ExtResource( 13 )]
+visible = false
 
 [connection signal="request_completed" from="TranslationHandler/LanguagesRequest" to="TranslationHandler" method="_on_LanguagesRequest_request_completed"]
 [connection signal="request_completed" from="TranslationHandler/TranslationRequest" to="TranslationHandler" method="_on_TranslationRequest_request_completed"]
