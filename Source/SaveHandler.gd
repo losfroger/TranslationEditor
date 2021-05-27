@@ -67,3 +67,4 @@ func _on_LoadSubFileDialog_file_selected(path: String) -> void:
 
 func _on_NewFileDialog_confirmed() -> void:
 	get_tree().call_group("sub_entry", "queue_free")
+	ActorGlobal.reset_actors()

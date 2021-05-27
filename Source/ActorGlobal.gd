@@ -2,6 +2,9 @@ extends Node
 
 signal updated_actor_list()
 
+var _defaultActorList:Array = ["Actor1", "Actor2"]
+var _defaultColorList:Array = [Color("ffffff"), Color("ffd1d1")]
+
 var actorList:Array = ["Actor1", "Actor2"]
 var colorList:Array = [Color("ffffff"), Color("ffd1d1")]
 
@@ -66,3 +69,9 @@ func update_actor(index: int, newName: String, newColor: Color, changeColor = fa
 		emit_signal("updated_actor_list")
 		return true
 	return false
+
+
+func reset_actors():
+	actorList = _defaultActorList.duplicate(true)
+	colorList = _defaultColorList.duplicate(true)
+	emit_signal("updated_actor_list")
