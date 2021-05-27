@@ -28,7 +28,7 @@ func load_actors(actors: String) -> bool:
 			for actor in tempActorList:
 				actor = actor.split("|", false)
 				actorList.append(actor[0])
-				colorList.append(actor[1])
+				colorList.append(Color(actor[1]))
 		# If there are no colors
 		else:
 			actorList = tempActorList

@@ -11,6 +11,7 @@ func _ready() -> void:
 func init() -> void:
 	for actor in ActorGlobal.actorList:
 		actorButton.add_item(actor)
+	update_color(0)
 	add_to_group("_actor_" + actorButton.get_item_text(0))
 
 
