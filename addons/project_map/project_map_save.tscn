@@ -15,13 +15,13 @@ bg_color = Color( 0.2, 0.231373, 0.309804, 1 )
 
 [node name="ProjectMap" type="GraphEdit"]
 visible = false
-margin_right = 1315.0
-margin_bottom = 514.0
+margin_right = 1425.0
+margin_bottom = 889.0
 rect_min_size = Vector2( 500, 500 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 1 )
-scroll_offset = Vector2( -292.65, -585.5 )
+scroll_offset = Vector2( -292.65, -514 )
 snap_distance = 32
 zoom = 0.9
 script = ExtResource( 3 )
@@ -32,9 +32,9 @@ __meta__ = {
 
 [node name="GroupNode" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 523.05
-margin_top = 297.5
+margin_top = 226.0
 margin_right = 715.05
-margin_bottom = 681.5
+margin_bottom = 610.0
 rect_min_size = Vector2( 192, 384 )
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
@@ -57,9 +57,9 @@ group_name = "Types of entries"
 
 [node name="GroupNode2" type="GraphNode" parent="." instance=ExtResource( 5 )]
 margin_left = 753.45
-margin_top = 297.5
+margin_top = 226.0
 margin_right = 945.45
-margin_bottom = 553.5
+margin_bottom = 482.0
 rect_min_size = Vector2( 192, 256 )
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
@@ -82,9 +82,9 @@ group_name = "Globals"
 
 [node name="FileNode5" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_left = 292.65
-margin_top = 355.1
+margin_top = 283.6
 margin_right = 441.65
-margin_bottom = 387.1
+margin_bottom = 315.6
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
@@ -107,9 +107,9 @@ icon_class = "Script"
 
 [node name="FileNode7" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_left = 292.65
-margin_top = 383.9
+margin_top = 312.4
 margin_right = 445.65
-margin_bottom = 415.9
+margin_bottom = 344.4
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
@@ -132,9 +132,9 @@ icon_class = "Script"
 
 [node name="FileNode6" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_left = 523.05
-margin_top = 355.1
+margin_top = 283.6
 margin_right = 661.05
-margin_bottom = 387.1
+margin_bottom = 315.6
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
@@ -157,9 +157,9 @@ icon_class = "Script"
 
 [node name="FileNode4" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_left = 753.45
-margin_top = 355.1
+margin_top = 283.6
 margin_right = 899.45
-margin_bottom = 387.1
+margin_bottom = 315.6
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
@@ -182,9 +182,9 @@ icon_class = "Script"
 
 [node name="FileNode8" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_left = 753.45
-margin_top = 383.9
+margin_top = 312.4
 margin_right = 922.45
-margin_bottom = 415.9
+margin_bottom = 344.4
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
@@ -207,9 +207,9 @@ icon_class = "Script"
 
 [node name="FileNode3" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_left = 523.05
-margin_top = 499.1
+margin_top = 427.6
 margin_right = 697.051
-margin_bottom = 561.1
+margin_bottom = 489.6
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
@@ -233,9 +233,9 @@ script_name = "CommentEntry.gd"
 
 [node name="FileNode9" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_left = 523.05
-margin_top = 556.7
+margin_top = 485.2
 margin_right = 695.05
-margin_bottom = 618.7
+margin_bottom = 547.2
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
@@ -259,9 +259,9 @@ script_name = "TranslateEntry.gd"
 
 [node name="FileNode10" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_left = 523.05
-margin_top = 383.9
+margin_top = 312.4
 margin_right = 692.05
-margin_bottom = 415.9
+margin_bottom = 344.4
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
@@ -284,9 +284,9 @@ icon_class = "Script"
 
 [node name="FileNode2" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_left = 523.05
-margin_top = 441.5
+margin_top = 370.0
 margin_right = 658.051
-margin_bottom = 503.5
+margin_bottom = 432.0
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
@@ -310,9 +310,9 @@ script_name = "SubEntry.gd"
 
 [node name="FileNode" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_left = 263.85
-margin_top = 297.5
+margin_top = 226.0
 margin_right = 432.851
-margin_bottom = 359.5
+margin_bottom = 288.0
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
@@ -336,9 +336,9 @@ script_name = "MainInterface.gd"
 
 [node name="FileNode11" type="GraphNode" parent="." instance=ExtResource( 4 )]
 margin_left = 292.65
-margin_top = 412.7
+margin_top = 341.2
 margin_right = 486.65
-margin_bottom = 444.7
+margin_bottom = 373.2
 rect_scale = Vector2( 0.9, 0.9 )
 mouse_filter = 1
 custom_styles/frame = ExtResource( 6 )
@@ -358,5 +358,110 @@ __meta__ = {
 path = "res://Source/TranslationHandler.gd"
 resource_type = 2
 icon_class = "Script"
+
+[node name="FileNode12" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 263.85
+margin_top = 485.2
+margin_right = 424.85
+margin_bottom = 547.2
+rect_scale = Vector2( 0.9, 0.9 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( -32, -32 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Interface/Config/ConfigDialog.tscn"
+icon_class = "WindowDialog"
+script_path = "res://Scenes/Interface/Config/ConfigDialog.gd"
+script_name = "ConfigDialog.gd"
+
+[node name="FileNode13" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 983.85
+margin_top = 283.6
+margin_right = 1119.85
+margin_bottom = 345.6
+rect_scale = Vector2( 0.9, 0.9 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 768, -256 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Interface/AddActor.tscn"
+icon_class = "WindowDialog"
+script_path = "res://Scenes/Interface/AddActor.gd"
+script_name = "AddActor.gd"
+
+[node name="FileNode14" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 983.85
+margin_top = 341.2
+margin_right = 1118.85
+margin_bottom = 403.2
+rect_scale = Vector2( 0.9, 0.9 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 768, -192 )
+selected = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Interface/EditActor.tscn"
+icon_class = "WindowDialog"
+script_path = "res://Scenes/Interface/EditActor.gd"
+script_name = "EditActor.gd"
+
+[node name="FileNode15" type="GraphNode" parent="." instance=ExtResource( 4 )]
+margin_left = 263.85
+margin_top = 542.8
+margin_right = 409.85
+margin_bottom = 604.8
+rect_scale = Vector2( 0.9, 0.9 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 6 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( -32, 32 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Interface/QuitDialog.tscn"
+icon_class = "WindowDialog"
+script_path = "res://Scenes/Interface/QuitDialog.gd"
+script_name = "QuitDialog.gd"
 
 [connection signal="delete_nodes_request" from="." to="." method="_on_GraphEdit_delete_nodes_request"]
