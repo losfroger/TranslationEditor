@@ -111,8 +111,7 @@ text = "Color:"
 margin_left = 64.0
 margin_right = 283.0
 margin_bottom = 20.0
-hint_tooltip = "Color for the actor
-(Not yet implemented)"
+hint_tooltip = "Color for the actor"
 size_flags_horizontal = 3
 color = Color( 1, 1, 1, 1 )
 edit_alpha = false
@@ -172,6 +171,9 @@ text = "Number of instances: 0"
 margin_left = 228.0
 margin_right = 283.0
 margin_bottom = 20.0
+hint_tooltip = "Delete actor
+Can only be done if it has no instances
+(Not yet implemented)"
 size_flags_horizontal = 10
 text = "Delete"
 
