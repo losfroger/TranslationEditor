@@ -435,7 +435,6 @@ visible = false
 [node name="AddActor" parent="PopupWindows" instance=ExtResource( 10 )]
 
 [node name="EditActor" parent="PopupWindows" instance=ExtResource( 15 )]
-visible = false
 
 [node name="ConfigDialog" parent="PopupWindows" instance=ExtResource( 13 )]
 visible = false

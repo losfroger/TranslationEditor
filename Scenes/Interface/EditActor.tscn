@@ -3,7 +3,6 @@
 [ext_resource path="res://Scenes/Interface/EditActor.gd" type="Script" id=1]
 
 [node name="EditActor" type="WindowDialog"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -174,7 +173,7 @@ margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Accept"
 
-[node name="Accept3" type="Button" parent="Margin/VBoxContainer/HBoxContainer"]
+[node name="Cancel" type="Button" parent="Margin/VBoxContainer/HBoxContainer"]
 margin_left = 148.0
 margin_right = 293.0
 margin_bottom = 20.0
@@ -184,4 +183,4 @@ text = "Cancel"
 [connection signal="about_to_show" from="." to="." method="_on_EditActor_about_to_show"]
 [connection signal="item_selected" from="Margin/VBoxContainer/ActorSelector" to="." method="_on_ActorSelector_item_selected"]
 [connection signal="pressed" from="Margin/VBoxContainer/HBoxContainer/Accept" to="." method="_on_Accept_pressed"]
-[connection signal="pressed" from="Margin/VBoxContainer/HBoxContainer/Accept3" to="." method="_on_Accept3_pressed"]
+[connection signal="pressed" from="Margin/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_Cancel_pressed"]

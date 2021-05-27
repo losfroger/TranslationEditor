@@ -3,6 +3,7 @@ extends WindowDialog
 
 onready var actorSelector = $Margin/VBoxContainer/ActorSelector
 onready var nameText = $Margin/VBoxContainer/InfoPanel/Margin/Options/NameContainer/Name
+onready var colorSelect = $Margin/VBoxContainer/InfoPanel/Margin/Options/ColorContainer/Color
 
 onready var numActorLabel = $Margin/VBoxContainer/InfoPanel/Margin/Options/Instances/NumActor
 onready var deleteBtn = $Margin/VBoxContainer/InfoPanel/Margin/Options/Instances/Delete
@@ -25,6 +26,7 @@ func _on_ActorSelector_item_selected(index: int) -> void:
 		warning.visible = false
 		var count = get_tree().get_nodes_in_group("_actor_" + actorSelector.get_item_text(index)).size()
 		nameText.text = actorSelector.get_item_text(index)
+		colorSelect.color = ActorGlobal.colorList[index]
 		numActorLabel.text = "Number of instances: " + String(count)
 		if count > 0:
 			deleteBtn.disabled = true
@@ -38,14 +40,18 @@ func _on_EditActor_about_to_show() -> void:
 
 
 func _on_Accept_pressed() -> void:
-	if nameText.text != actorSelector.get_item_text(actorSelector.selected):
-		if not ActorGlobal.update_actor(actorSelector.selected, nameText.text):
+	if (nameText.text != actorSelector.get_item_text(actorSelector.selected)):
+		
+		if not ActorGlobal.update_actor(actorSelector.selected, nameText.text, colorSelect.color):
 			warning.visible = true
 		else:
 			warning.visible = false
 			hide()
+	elif (colorSelect.color != ActorGlobal.colorList[actorSelector.selected]):
+		ActorGlobal.update_actor(actorSelector.selected, nameText.text, colorSelect.color, true)
+		hide()
 
 
-func _on_Accept3_pressed() -> void:
+func _on_Cancel_pressed() -> void:
 	warning.visible = false
 	hide()

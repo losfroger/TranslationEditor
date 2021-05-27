@@ -14,14 +14,24 @@ func init() -> void:
 	add_to_group("_actor_" + actorButton.get_item_text(0))
 
 
-func select_changed(index: int):
+func select_changed(index: int) -> void:
 	remove_from_group(get_groups()[-1])
 	add_to_group("_actor_" + actorButton.get_item_text(index))
+	update_color(index)
+
+
+func update_color(index: int) -> void:
+	var color: Color = ActorGlobal.colorList[index]
+	actorButton.add_color_override("font_color", color)
+	actorButton.add_color_override("font_color_hover", color)
+	actorButton.add_color_override("font_color_pressed", color)
 
 
 func update_group(newName: String):
 	remove_from_group(get_groups()[-1])
 	add_to_group("_actor_" + newName)
+	update_color(actorButton.selected)
+
 
 func change_actor(change) -> void:
 	match change:
