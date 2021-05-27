@@ -22,6 +22,7 @@ func get_text() -> void:
 func get_focus() -> void:
 	subText.release_focus()
 	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 	subText.grab_focus()
 
 
